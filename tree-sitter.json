@@ -1,0 +1,35 @@
+{
+  "grammars": [
+    {
+      "name": "nyashyker_translate",
+      "camelcase": "NyashykerTranslate",
+      "scope": "source.nt",
+      "file-types": [
+        ".nt"
+      ],
+      "injection-regex": "^nyashyker_translate$"
+    }
+  ],
+  "metadata": {
+    "version": "3.0.1",
+    "license": "MIT",
+    "description": "The translation writing standart made by Nyashyker for Nyashyker in consultation with his translators.",
+    "authors": [
+      {
+        "name": "Nyashyker",
+        "email": "nyashyker@gmail.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/Nyashyker/NyashykerTranslate.git"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}
