@@ -12,46 +12,47 @@ module.exports = grammar({
 
   rules: {
     source_file: $ => seq(
-      optional($._work),
-      optional($._credits),
-      repeat1($._translate)
+      optional($._work), //Багаторядкова структура
+      optional($._credits), //Багаторядкова структура
+      repeat1($._translate) //Багаторядкова структура
     ),
 
     // Твір
     _work: $ => seq(
-      $.name,
-      $.link
+      $.name, //Однорядкова конструкція (у рядку може бути лише й тільки вона)
+      $.link //Однорядкова конструкція (у рядку може бути лише й тільки вона)
     ),
 
     // Діло робили
     _credits: $ => repeat1(
       seq(
-        $.work,
+        $.role,
         ":",
-        $.workers,
-        "\n"
+        $.persons
       )
     ),
 
     // Структоризований переклад
     _translate: $ => seq(
-      optional($.part),
-      repeat1($.page)
+      prec(5, optional($.part)), //Однорядкова конструкція (у рядку може бути лише й тільки вона)
+      repeat1($.page) //Багаторядкова структура
     ),
 
     name: $ => seq(
       "#",
       /.*/,
+      "\n"
     ),
 
     link: $ => seq(
       "#",
       "https://",
       /[a-zA-Z0-9\._\-\/]+/,
+      "\n"
     ),
 
 
-    work: $ => choice(
+    role: $ => choice(
       "Перекладав",
       "Редагував",
       "Клінив",
@@ -59,31 +60,33 @@ module.exports = grammar({
       "Обкладинка"
     ),
 
-    workers: $ => seq(
-      $.worker,
+    persons: $ => seq(
+      $.person,
       repeat(
         seq(
           ",",
-          $.worker
+          $.person
         )
-      )
+      ),
+      "\n"
     ),
-    worker: $ => /[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\-\']+/,
+    person: $ => /[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\-\']+/,
 
 
     part: $ => seq(
       "===",
       /\d+/,
-      "==="
+      "===",
+      "\n"
     ),
 
     page: $ => seq(
-      $.page_number,
+      prec(4, $.page_number), //Однорядкова конструкція (у рядку може бути лише й тільки вона)
       repeat(
         choice(
-          $.text,
-          $.sound,
-          $.separator
+          prec(1, $.text), //Однорядкова конструкція (у рядку може бути лише й тільки вона)
+          prec(2, $.sound), //Однорядкова конструкція (у рядку може бути лише й тільки вона)
+          prec(3, $.separator) //Однорядкова конструкція (у рядку може бути лише й тільки вона)
         )
       )
     ),
@@ -92,7 +95,8 @@ module.exports = grammar({
       "==",
       /\d+/,
       "==",
-      optional($.page_real_number)
+      optional($.page_real_number),
+      "\n"
     ),
     page_real_number: $ => /\(\d+\)/,
 
@@ -100,9 +104,10 @@ module.exports = grammar({
     sound: $ => seq(
       /.*?/,
       "*",
-      /\d+/
+      /\d+/,
+      "\n"
     ),
-    separator: $ => "---",
+    separator: $ => "---\n",
   }
 });
 
