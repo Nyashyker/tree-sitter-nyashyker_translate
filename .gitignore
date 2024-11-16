@@ -28,6 +28,7 @@ dist/
 
 # Example dirs
 /examples/*/
+/examples/
 
 # Grammar volatiles
 *.wasm
