@@ -11,7 +11,103 @@ module.exports = grammar({
   name: "nyashyker_translate",
 
   rules: {
-    // TODO: add the actual grammar rules
-    source_file: $ => "hello"
+    source_file: $ => seq(
+      optional($._work),
+      optional($._credits),
+      repeat($._translate)
+    ),
+
+    // Твір
+    _work: $ => seq(
+      $.name,
+      $.link
+    ),
+
+    // Діло робили
+    _credits: $ => repeat(
+      seq(
+        /^/,
+        $.work,
+        ":",
+        $.workers
+      )
+    ),
+
+    // Структоризований переклад
+    _translate: $ => seq(
+      optional($.part),
+      repeat($.page)
+    ),
+
+    name: $ => seq(
+      /^/,
+      "#",
+      /.*/,
+      /$/
+    ),
+
+    link: $ => seq(
+      /^/,
+      "#",
+      "https://",
+      /[a-zA-Z0-9\._\-\/]+/,
+      /$/
+    ),
+
+
+    work: $ => choice(
+      "Перекладав",
+      "Редагував",
+      "Клінив",
+      "Тайпив",
+      "Обкладинка"
+    ),
+
+    workers: $ => repeat(
+      $.worker,
+      optional(",")
+    ),
+    worker: $ => /[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\-\']+/,
+
+
+    part: $ => seq(
+      /^/,
+      "===",
+      /\d+/,
+      "==="
+    ),
+
+    page: $ => seq(
+      $.page_number,
+      repeat(
+        choice(
+          $.text,
+          $.sound,
+          $.separator
+        )
+      )
+    ),
+
+    page_number: $ => seq(
+      "==",
+      /\d+/,
+      "==",
+      optional($.page_real_number)
+    ),
+    page_real_number: $ => /\(\d+\)/,
+
+    text: $ => /.*/,
+    sound: $ => seq(
+      /^/,
+      /.*?/,
+      "*",
+      /\d+/
+    ),
+    separator: $ => seq(
+      /^/,
+      "---",
+      /$/
+    ),
   }
 });
+
