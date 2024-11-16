@@ -26,10 +26,10 @@ module.exports = grammar({
     // Діло робили
     _credits: $ => repeat1(
       seq(
-        /^/,
         $.work,
         ":",
-        $.workers
+        $.workers,
+        "\n"
       )
     ),
 
@@ -40,18 +40,14 @@ module.exports = grammar({
     ),
 
     name: $ => seq(
-      /^/,
       "#",
       /.*/,
-      /$/
     ),
 
     link: $ => seq(
-      /^/,
       "#",
       "https://",
       /[a-zA-Z0-9\._\-\/]+/,
-      /$/
     ),
 
 
@@ -67,7 +63,7 @@ module.exports = grammar({
       $.worker,
       repeat(
         seq(
-          optional(","),
+          ",",
           $.worker
         )
       )
@@ -76,7 +72,6 @@ module.exports = grammar({
 
 
     part: $ => seq(
-      /^/,
       "===",
       /\d+/,
       "==="
@@ -103,16 +98,11 @@ module.exports = grammar({
 
     text: $ => /.*/,
     sound: $ => seq(
-      /^/,
       /.*?/,
       "*",
       /\d+/
     ),
-    separator: $ => seq(
-      /^/,
-      "---",
-      /$/
-    ),
+    separator: $ => "---",
   }
 });
 
