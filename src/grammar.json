@@ -3,8 +3,342 @@
   "name": "nyashyker_translate",
   "rules": {
     "source_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_work"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_credits"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_translate"
+          }
+        }
+      ]
+    },
+    "_work": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "name"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "link"
+        }
+      ]
+    },
+    "_credits": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "role"
+          },
+          {
+            "type": "STRING",
+            "value": ":"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "persons"
+          }
+        ]
+      }
+    },
+    "_translate": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PREC",
+            "value": 5,
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "part"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          },
+          {
+            "type": "REPEAT1",
+            "content": {
+              "type": "SYMBOL",
+              "name": "page"
+            }
+          }
+        ]
+      }
+    },
+    "name": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "PATTERN",
+          "value": ".*"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "link": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "STRING",
+          "value": "https://"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[a-zA-Z0-9\\._\\-\\/]+"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "role": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "Перекладав"
+        },
+        {
+          "type": "STRING",
+          "value": "Редагував"
+        },
+        {
+          "type": "STRING",
+          "value": "Клінив"
+        },
+        {
+          "type": "STRING",
+          "value": "Тайпив"
+        },
+        {
+          "type": "STRING",
+          "value": "Обкладинка"
+        }
+      ]
+    },
+    "persons": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "person"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "person"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "person": {
+      "type": "PATTERN",
+      "value": "[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\\-\\']+"
+    },
+    "part": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "==="
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\d+"
+        },
+        {
+          "type": "STRING",
+          "value": "==="
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "page": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PREC",
+          "value": 4,
+          "content": {
+            "type": "SYMBOL",
+            "name": "page_number"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PREC",
+                "value": 1,
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "text"
+                }
+              },
+              {
+                "type": "PREC",
+                "value": 2,
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "sound"
+                }
+              },
+              {
+                "type": "PREC",
+                "value": 3,
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "separator"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "page_number": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "=="
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\d+"
+        },
+        {
+          "type": "STRING",
+          "value": "=="
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "page_real_number"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "page_real_number": {
+      "type": "PATTERN",
+      "value": "\\(\\d+\\)"
+    },
+    "text": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": ".*"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "sound": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": ".*?"
+        },
+        {
+          "type": "STRING",
+          "value": "*"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\d+"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "separator": {
       "type": "STRING",
-      "value": "hello"
+      "value": "---\n"
     }
   },
   "extras": [

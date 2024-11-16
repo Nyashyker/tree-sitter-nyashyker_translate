@@ -33,10 +33,10 @@ module.exports = grammar({
     ),
 
     // Структоризований переклад
-    _translate: $ => seq(
+    _translate: $ => prec.left(seq(
       prec(5, optional($.part)), //Однорядкова конструкція (у рядку може бути лише й тільки вона)
       repeat1($.page) //Багаторядкова структура
-    ),
+    )),
 
     name: $ => seq(
       "#",
@@ -100,7 +100,10 @@ module.exports = grammar({
     ),
     page_real_number: $ => /\(\d+\)/,
 
-    text: $ => /.*/,
+    text: $ => seq(
+      /.*/,
+      "\n"
+    ),
     sound: $ => seq(
       /.*?/,
       "*",
