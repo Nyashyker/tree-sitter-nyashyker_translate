@@ -14,7 +14,7 @@ module.exports = grammar({
     source_file: $ => seq(
       optional($._work),
       optional($._credits),
-      repeat($._translate)
+      repeat1($._translate)
     ),
 
     // Твір
@@ -24,7 +24,7 @@ module.exports = grammar({
     ),
 
     // Діло робили
-    _credits: $ => repeat(
+    _credits: $ => repeat1(
       seq(
         /^/,
         $.work,
@@ -36,7 +36,7 @@ module.exports = grammar({
     // Структоризований переклад
     _translate: $ => seq(
       optional($.part),
-      repeat($.page)
+      repeat1($.page)
     ),
 
     name: $ => seq(
@@ -63,9 +63,14 @@ module.exports = grammar({
       "Обкладинка"
     ),
 
-    workers: $ => repeat(
+    workers: $ => seq(
       $.worker,
-      optional(",")
+      repeat(
+        seq(
+          optional(","),
+          $.worker
+        )
+      )
     ),
     worker: $ => /[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\-\']+/,
 
