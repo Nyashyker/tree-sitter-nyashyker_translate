@@ -26,6 +26,7 @@ module.exports = grammar({
     // Діло робили
     credits: $ => repeat1(
       seq(
+        "#",
         $.role,
         ":",
         $.persons
