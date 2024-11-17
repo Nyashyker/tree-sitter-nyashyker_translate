@@ -22,7 +22,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "_credits"
+              "name": "credits"
             },
             {
               "type": "BLANK"
@@ -51,7 +51,7 @@
         }
       ]
     },
-    "_credits": {
+    "credits": {
       "type": "REPEAT1",
       "content": {
         "type": "SEQ",

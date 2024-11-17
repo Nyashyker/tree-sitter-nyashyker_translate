@@ -1,5 +1,24 @@
 [
   {
+    "type": "credits",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "persons",
+          "named": true
+        },
+        {
+          "type": "role",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "link",
     "named": true,
     "fields": {}
@@ -91,6 +110,10 @@
       "required": true,
       "types": [
         {
+          "type": "credits",
+          "named": true
+        },
+        {
           "type": "link",
           "named": true
         },
@@ -104,14 +127,6 @@
         },
         {
           "type": "part",
-          "named": true
-        },
-        {
-          "type": "persons",
-          "named": true
-        },
-        {
-          "type": "role",
           "named": true
         }
       ]

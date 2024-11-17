@@ -13,7 +13,7 @@ module.exports = grammar({
   rules: {
     source_file: $ => seq(
       optional($._work), //Багаторядкова структура
-      optional($._credits), //Багаторядкова структура
+      optional($.credits), //Багаторядкова структура
       repeat1($._translate) //Багаторядкова структура
     ),
 
@@ -24,7 +24,7 @@ module.exports = grammar({
     ),
 
     // Діло робили
-    _credits: $ => repeat1(
+    credits: $ => repeat1(
       seq(
         $.role,
         ":",
