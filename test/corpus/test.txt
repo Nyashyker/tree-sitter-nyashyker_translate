@@ -31,7 +31,7 @@
       (page_number (page_real_number) )
       (text)
       (separator)
-      (text)
+      (sound)
       (comment)
     )
   )
