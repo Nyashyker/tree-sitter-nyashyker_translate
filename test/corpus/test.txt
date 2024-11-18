@@ -1,0 +1,40 @@
+=====|||
+Загальний тест
+=====|||
+
+#Some Story Name - 1)
+#https://some-site.link/bla-bla
+
+#Перекладав: Хтось, Shos1
+
+=== 0 ===
+== 00 == (99)
+Текст
+---
+Звуки *Р
+= коментар до попереднього рядка
+
+-----|||
+
+(source_file
+  (name
+  (link
+  (credits
+    (role
+    (persons
+      (person)
+      (person)
+    )
+  (part
+  (page
+    (page_number (page_real_number) )
+    (text)
+    (separator)
+    (text)
+    (comment)
+  )
+
+=====|||
+:skip
+=====|||
+-----|||
