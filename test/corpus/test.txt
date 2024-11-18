@@ -38,6 +38,169 @@
 )
 
 =====|||
-:skip
+Коментарі всюди
 =====|||
+
+= komentar 1
+#Some Story Name - 1)
+= komentar 2
+#https://some-site.link/bla-bla
+= komentar 3
+
+#Перекладав: Хтось, Shos1
+= komentar 4
+#Редачив: Poh
+
+= komentar 5
+=== 0 ===
+= komentar 6
+== 00 == (99)
+= komentar
+Текст
+= komentar
+---
+= komentar
+Звуки *0
+= komentar
+= коментар до попереднього рядка
+
+== 1 ==
+= komentar
+
 -----|||
+
+(source_file
+  (comment)
+  (name)
+  (comment)
+  (link)
+  (comment)
+  (credit
+    (role)
+    (persons
+      (person)
+      (person)
+    )
+  )
+  (comment)
+  (credit
+    (role)
+    (persons
+      (person)
+    )
+  )
+  (comment)
+  (part (part_number)
+  (comment)
+    (page
+      (page_number (page_real_number) )
+      (comment)
+      (text)
+      (comment)
+      (separator)
+      (comment)
+      (sound)
+      (comment)
+      (comment)
+    )
+  )
+)
+
+=====|||
+необхідний мінімум
+=====|||
+
+== 0 ==
+Т
+
+-----|||
+
+(source_file
+  (part
+    (page
+      (page_number)
+      (text)
+    )
+  )
+)
+
+=====|||
+Кілька сторінок і частин
+=====|||
+
+=== 0 ===
+== 00 == (99)
+Текст
+---
+Звуки *0
+= коментар до попереднього рядка
+
+== 1 ==
+Текст
+---
+Звуки *0
+= коментар до попереднього рядка
+
+=== 1 ===
+== 00 == (999)
+Текст
+---
+Звуки *0
+= коментар до попереднього рядка
+
+== 1 ==
+Текст
+---
+Звуки *0
+= коментар до попереднього рядка
+
+== 02 ==
+Текст
+---
+Звуки *0
+= коментар до попереднього рядка
+
+-----|||
+
+(source_file
+  (part (part_number)
+    (page
+      (page_number (page_real_number) )
+      (text)
+      (separator)
+      (sound)
+      (comment)
+    )
+    (page
+      (page_number)
+      (text)
+      (separator)
+      (sound)
+      (comment)
+    )
+  )
+  (part (part_number)
+    (page
+      (page_number (page_real_number) )
+      (text)
+      (separator)
+      (sound)
+      (comment)
+    )
+    (page
+      (page_number)
+      (text)
+      (separator)
+      (sound)
+      (comment)
+    )
+    (page
+      (page_number)
+      (text)
+      (separator)
+      (sound)
+      (comment)
+    )
+  )
+)
+
