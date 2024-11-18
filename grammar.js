@@ -17,11 +17,11 @@ module.exports = grammar({
       repeat1($.part)
     ),
 
-    comment: $ => prec(64, seq(
+    comment: $ => seq(
       "#",
       /.*/,
       "\n"
-    )),
+    ),
 
 
     // Твір
@@ -75,7 +75,7 @@ module.exports = grammar({
 
     // Структоризований переклад
     part: $ => prec.left(seq(
-      prec(5, optional($.part_number)),
+      optional($.part_number),
       repeat1($.page)
     )),
 
@@ -87,13 +87,13 @@ module.exports = grammar({
     ),
 
     page: $ => seq(
-      prec(4, $.page_number),
+      $.page_number,
       repeat(
         choice(
-          prec(6, $.comment),
-          prec(2, $.sound),
-          prec(3, $.separator),
-          prec(-1, $.text)
+          $.comment,
+          $.sound,
+          $.separator,
+          $.text
         )
       )
     ),
@@ -107,21 +107,22 @@ module.exports = grammar({
     ),
     page_real_number: $ => /\(\d+\)/,
 
-    text: $ => prec(-1000, seq(
+    text: $ => seq(
       choice(
+        // 1-2
         /[^\n\=].?/,
-        /[^\n\-]{3}/,
-        /[^\n\=].*?[^\n*][^\n\d]/
+        // 3+
+        /[^\n\=].*?[^\n\*][^\n\d]/
       ),
       "\n"
-    )),
-    sound: $ => prec(10, seq(
-      /.*?/,
+    ),
+    sound: $ => seq(
+      /.*/,
       "*",
       /\d+/,
       "\n"
-    )),
-    separator: $ => prec(11, "---\n"),
+    ),
+    separator: $ => "---\n",
   }
 });
 

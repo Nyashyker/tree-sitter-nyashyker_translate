@@ -124,11 +124,6 @@
     "fields": {}
   },
   {
-    "type": "separator",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "sound",
     "named": true,
     "fields": {}
@@ -183,10 +178,6 @@
     "named": false
   },
   {
-    "type": "---\n",
-    "named": false
-  },
-  {
     "type": ":",
     "named": false
   },
@@ -208,6 +199,10 @@
   },
   {
     "type": "person",
+    "named": true
+  },
+  {
+    "type": "separator",
     "named": true
   },
   {

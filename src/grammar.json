@@ -34,25 +34,21 @@
       ]
     },
     "comment": {
-      "type": "PREC",
-      "value": 64,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "#"
-          },
-          {
-            "type": "PATTERN",
-            "value": ".*"
-          },
-          {
-            "type": "STRING",
-            "value": "\n"
-          }
-        ]
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "PATTERN",
+          "value": ".*"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
     },
     "_work": {
       "type": "SEQ",
@@ -191,20 +187,16 @@
         "type": "SEQ",
         "members": [
           {
-            "type": "PREC",
-            "value": 5,
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "part_number"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "part_number"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
           },
           {
             "type": "REPEAT1",
@@ -241,12 +233,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "PREC",
-          "value": 4,
-          "content": {
-            "type": "SYMBOL",
-            "name": "page_number"
-          }
+          "type": "SYMBOL",
+          "name": "page_number"
         },
         {
           "type": "REPEAT",
@@ -254,36 +242,20 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "PREC",
-                "value": 6,
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "comment"
-                }
+                "type": "SYMBOL",
+                "name": "comment"
               },
               {
-                "type": "PREC",
-                "value": 2,
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "sound"
-                }
+                "type": "SYMBOL",
+                "name": "sound"
               },
               {
-                "type": "PREC",
-                "value": 3,
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "separator"
-                }
+                "type": "SYMBOL",
+                "name": "separator"
               },
               {
-                "type": "PREC",
-                "value": -1,
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "text"
-                }
+                "type": "SYMBOL",
+                "name": "text"
               }
             ]
           }
@@ -328,67 +300,51 @@
       "value": "\\(\\d+\\)"
     },
     "text": {
-      "type": "PREC",
-      "value": -1000,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "PATTERN",
-                "value": "[^\\n\\=].?"
-              },
-              {
-                "type": "PATTERN",
-                "value": "[^\\n\\-]{3}"
-              },
-              {
-                "type": "PATTERN",
-                "value": "[^\\n\\=].*?[^\\n*][^\\n\\d]"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": "\n"
-          }
-        ]
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[^\\n\\=].?"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[^\\n\\=].*?[^\\n\\*][^\\n\\d]"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
     },
     "sound": {
-      "type": "PREC",
-      "value": 10,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "PATTERN",
-            "value": ".*?"
-          },
-          {
-            "type": "STRING",
-            "value": "*"
-          },
-          {
-            "type": "PATTERN",
-            "value": "\\d+"
-          },
-          {
-            "type": "STRING",
-            "value": "\n"
-          }
-        ]
-      }
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": ".*"
+        },
+        {
+          "type": "STRING",
+          "value": "*"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\d+"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
     },
     "separator": {
-      "type": "PREC",
-      "value": 11,
-      "content": {
-        "type": "STRING",
-        "value": "---\n"
-      }
+      "type": "STRING",
+      "value": "---\n"
     }
   },
   "extras": [
