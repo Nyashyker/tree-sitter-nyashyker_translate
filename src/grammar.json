@@ -18,23 +18,35 @@
           ]
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "credits"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "credit"
+          }
         },
         {
           "type": "REPEAT1",
           "content": {
             "type": "SYMBOL",
-            "name": "_translate"
+            "name": "part"
           }
+        }
+      ]
+    },
+    "comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "PATTERN",
+          "value": ".*"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
         }
       ]
     },
@@ -50,62 +62,6 @@
           "name": "link"
         }
       ]
-    },
-    "credits": {
-      "type": "REPEAT1",
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "#"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "role"
-          },
-          {
-            "type": "STRING",
-            "value": ":"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "persons"
-          }
-        ]
-      }
-    },
-    "_translate": {
-      "type": "PREC_LEFT",
-      "value": 0,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "PREC",
-            "value": 5,
-            "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "SYMBOL",
-                  "name": "part"
-                },
-                {
-                  "type": "BLANK"
-                }
-              ]
-            }
-          },
-          {
-            "type": "REPEAT1",
-            "content": {
-              "type": "SYMBOL",
-              "name": "page"
-            }
-          }
-        ]
-      }
     },
     "name": {
       "type": "SEQ",
@@ -142,6 +98,27 @@
         {
           "type": "STRING",
           "value": "\n"
+        }
+      ]
+    },
+    "credit": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "role"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "persons"
         }
       ]
     },
@@ -204,6 +181,38 @@
       "value": "[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\\-\\']+"
     },
     "part": {
+      "type": "PREC_LEFT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PREC",
+            "value": 5,
+            "content": {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "part_number"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          },
+          {
+            "type": "REPEAT1",
+            "content": {
+              "type": "SYMBOL",
+              "name": "page"
+            }
+          }
+        ]
+      }
+    },
+    "part_number": {
       "type": "SEQ",
       "members": [
         {
@@ -242,7 +251,7 @@
             "members": [
               {
                 "type": "PREC",
-                "value": 1,
+                "value": -1,
                 "content": {
                   "type": "SYMBOL",
                   "name": "text"
@@ -262,6 +271,14 @@
                 "content": {
                   "type": "SYMBOL",
                   "name": "separator"
+                }
+              },
+              {
+                "type": "PREC",
+                "value": 6,
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "comment"
                 }
               }
             ]

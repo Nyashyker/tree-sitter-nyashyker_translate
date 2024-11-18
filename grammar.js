@@ -90,7 +90,7 @@ module.exports = grammar({
       prec(4, $.page_number),
       repeat(
         choice(
-          prec(1, $.text),
+          prec(-1, $.text),
           prec(2, $.sound),
           prec(3, $.separator),
           prec(6, $.comment)

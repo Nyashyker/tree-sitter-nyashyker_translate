@@ -1,6 +1,11 @@
 [
   {
-    "type": "credits",
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "credit",
     "named": true,
     "fields": {},
     "children": {
@@ -37,6 +42,10 @@
       "required": true,
       "types": [
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "page_number",
           "named": true
         },
@@ -72,6 +81,25 @@
   },
   {
     "type": "part",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "page",
+          "named": true
+        },
+        {
+          "type": "part_number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "part_number",
     "named": true,
     "fields": {}
   },
@@ -110,7 +138,7 @@
       "required": true,
       "types": [
         {
-          "type": "credits",
+          "type": "credit",
           "named": true
         },
         {
@@ -119,10 +147,6 @@
         },
         {
           "type": "name",
-          "named": true
-        },
-        {
-          "type": "page",
           "named": true
         },
         {
