@@ -17,11 +17,7 @@ module.exports = grammar({
       repeat1($.part)
     ),
 
-    comment: $ => seq(
-      "#",
-      /.*/,
-      "\n"
-    ),
+    comment: $ => /=.*\n/,
 
 
     // Твір
@@ -30,27 +26,12 @@ module.exports = grammar({
       $.link
     ),
 
-    name: $ => seq(
-      "#",
-      /.*/,
-      "\n"
-    ),
-
-    link: $ => seq(
-      "#",
-      "https://",
-      /[a-zA-Z0-9\._\-\/]+/,
-      "\n"
-    ),
+    name: $ => /#.*\n/,
+    link: $ => /#https:\/\/[a-zA-Z0-9\._\-\/]+\n/,
 
 
     // Діло робили
-    credit: $ => seq(
-      "#",
-      $.role,
-      ":",
-      $.persons
-    ),
+    credit: $ => seq("#",$.role,":",$.persons),
 
     role: $ => choice(
       "Перекладав",
@@ -62,12 +43,7 @@ module.exports = grammar({
 
     persons: $ => seq(
       $.person,
-      repeat(
-        seq(
-          ",",
-          $.person
-        )
-      ),
+      repeat(seq(",",$.person)),
       "\n"
     ),
     person: $ => /[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\-\']+/,
@@ -79,12 +55,7 @@ module.exports = grammar({
       repeat1($.page)
     )),
 
-    part_number: $ => seq(
-      "===",
-      /\d+/,
-      "===",
-      "\n"
-    ),
+    part_number: $ => /=== \d+ ===\n/,
 
     page: $ => seq(
       $.page_number,
@@ -99,31 +70,15 @@ module.exports = grammar({
     ),
 
     page_number: $ => seq(
-      "==",
-      /\d+/,
-      "==",
+      /== \d+ ==/,
       optional($.page_real_number),
       "\n"
     ),
     page_real_number: $ => /\(\d+\)/,
 
-    text: $ => seq(
-      ///.*/,
-      choice(
-        // 1-2
-        /[^\n\=].?/,
-        // 3+
-        /[^\n=].*[^\n*][^\n\d]/
-      ),
-      "\n"
-    ),
-    sound: $ => seq(
-      /.*/,
-      "*",
-      /\d+/,
-      "\n"
-    ),
-    separator: $ => "---\n",
+    text: $ => /([^\n\=].?\n)|([^\n=-].*[^\n*][^\n\d]\n)/,
+    sound: $ => /.*\*\d+\n/,
+    separator: $ => /---\n/,
   }
 });
 

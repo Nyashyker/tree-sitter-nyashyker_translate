@@ -34,21 +34,8 @@
       ]
     },
     "comment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "#"
-        },
-        {
-          "type": "PATTERN",
-          "value": ".*"
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "=.*\\n"
     },
     "_work": {
       "type": "SEQ",
@@ -64,42 +51,12 @@
       ]
     },
     "name": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "#"
-        },
-        {
-          "type": "PATTERN",
-          "value": ".*"
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "#.*\\n"
     },
     "link": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "#"
-        },
-        {
-          "type": "STRING",
-          "value": "https://"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[a-zA-Z0-9\\._\\-\\/]+"
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "#https:\\/\\/[a-zA-Z0-9\\._\\-\\/]+\\n"
     },
     "credit": {
       "type": "SEQ",
@@ -209,25 +166,8 @@
       }
     },
     "part_number": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "==="
-        },
-        {
-          "type": "PATTERN",
-          "value": "\\d+"
-        },
-        {
-          "type": "STRING",
-          "value": "==="
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "=== \\d+ ===\\n"
     },
     "page": {
       "type": "SEQ",
@@ -266,16 +206,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "=="
-        },
-        {
           "type": "PATTERN",
-          "value": "\\d+"
-        },
-        {
-          "type": "STRING",
-          "value": "=="
+          "value": "== \\d+ =="
         },
         {
           "type": "CHOICE",
@@ -300,51 +232,16 @@
       "value": "\\(\\d+\\)"
     },
     "text": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "PATTERN",
-              "value": "[^\\n\\=].?"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[^\\n\\=].*[^\\n\\*][^\\n\\d]"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
+      "type": "PATTERN",
+      "value": "([^\\n\\=].?\\n)|([^\\n=-].*[^\\n*][^\\n\\d]\\n)"
     },
     "sound": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": ".*"
-        },
-        {
-          "type": "STRING",
-          "value": "*"
-        },
-        {
-          "type": "PATTERN",
-          "value": "\\d+"
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
+      "type": "PATTERN",
+      "value": ".*\\*\\d+\\n"
     },
     "separator": {
-      "type": "STRING",
-      "value": "---\n"
+      "type": "PATTERN",
+      "value": "---\\n"
     }
   },
   "extras": [

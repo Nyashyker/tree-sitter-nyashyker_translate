@@ -1,10 +1,5 @@
 [
   {
-    "type": "comment",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "credit",
     "named": true,
     "fields": {},
@@ -22,16 +17,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "link",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "name",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "page",
@@ -99,11 +84,6 @@
     }
   },
   {
-    "type": "part_number",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "persons",
     "named": true,
     "fields": {},
@@ -120,11 +100,6 @@
   },
   {
     "type": "role",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "sound",
     "named": true,
     "fields": {}
   },
@@ -157,20 +132,11 @@
     }
   },
   {
-    "type": "text",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "\n",
     "named": false
   },
   {
     "type": "#",
-    "named": false
-  },
-  {
-    "type": "*",
     "named": false
   },
   {
@@ -182,19 +148,23 @@
     "named": false
   },
   {
-    "type": "==",
-    "named": false
+    "type": "comment",
+    "named": true
   },
   {
-    "type": "===",
-    "named": false
+    "type": "link",
+    "named": true
   },
   {
-    "type": "https://",
-    "named": false
+    "type": "name",
+    "named": true
   },
   {
     "type": "page_real_number",
+    "named": true
+  },
+  {
+    "type": "part_number",
     "named": true
   },
   {
@@ -203,6 +173,14 @@
   },
   {
     "type": "separator",
+    "named": true
+  },
+  {
+    "type": "sound",
+    "named": true
+  },
+  {
+    "type": "text",
     "named": true
   },
   {
