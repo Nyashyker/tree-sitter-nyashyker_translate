@@ -26,7 +26,7 @@
       (person)
     )
   )
-  (part
+  (part (part_number)
     (page
       (page_number (page_real_number) )
       (text)
