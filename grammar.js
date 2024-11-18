@@ -108,11 +108,12 @@ module.exports = grammar({
     page_real_number: $ => /\(\d+\)/,
 
     text: $ => seq(
+      ///.*/,
       choice(
         // 1-2
         /[^\n\=].?/,
         // 3+
-        /[^\n\=].*?[^\n\*][^\n\d]/
+        /[^\n=].*[^\n*][^\n\d]/
       ),
       "\n"
     ),
