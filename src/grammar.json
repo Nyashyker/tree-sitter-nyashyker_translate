@@ -34,21 +34,25 @@
       ]
     },
     "comment": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "#"
-        },
-        {
-          "type": "PATTERN",
-          "value": ".*"
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
+      "type": "PREC",
+      "value": 64,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "#"
+          },
+          {
+            "type": "PATTERN",
+            "value": ".*"
+          },
+          {
+            "type": "STRING",
+            "value": "\n"
+          }
+        ]
+      }
     },
     "_work": {
       "type": "SEQ",
@@ -251,10 +255,10 @@
             "members": [
               {
                 "type": "PREC",
-                "value": -1,
+                "value": 6,
                 "content": {
                   "type": "SYMBOL",
-                  "name": "text"
+                  "name": "comment"
                 }
               },
               {
@@ -275,10 +279,10 @@
               },
               {
                 "type": "PREC",
-                "value": 6,
+                "value": -1,
                 "content": {
                   "type": "SYMBOL",
-                  "name": "comment"
+                  "name": "text"
                 }
               }
             ]
@@ -324,42 +328,67 @@
       "value": "\\(\\d+\\)"
     },
     "text": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": ".*"
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
+      "type": "PREC",
+      "value": -1000,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "PATTERN",
+                "value": "[^\\n\\=].?"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[^\\n\\-]{3}"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[^\\n\\=].*?[^\\n*][^\\n\\d]"
+              }
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": "\n"
+          }
+        ]
+      }
     },
     "sound": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": ".*?"
-        },
-        {
-          "type": "STRING",
-          "value": "*"
-        },
-        {
-          "type": "PATTERN",
-          "value": "\\d+"
-        },
-        {
-          "type": "STRING",
-          "value": "\n"
-        }
-      ]
+      "type": "PREC",
+      "value": 10,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": ".*?"
+          },
+          {
+            "type": "STRING",
+            "value": "*"
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\d+"
+          },
+          {
+            "type": "STRING",
+            "value": "\n"
+          }
+        ]
+      }
     },
     "separator": {
-      "type": "STRING",
-      "value": "---\n"
+      "type": "PREC",
+      "value": 11,
+      "content": {
+        "type": "STRING",
+        "value": "---\n"
+      }
     }
   },
   "extras": [
