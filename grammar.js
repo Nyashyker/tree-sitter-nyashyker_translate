@@ -12,32 +12,23 @@ module.exports = grammar({
 
   rules: {
     source_file: $ => seq(
-      optional($._work), //Багаторядкова структура
-      optional($.credits), //Багаторядкова структура
-      repeat1($._translate) //Багаторядкова структура
+      optional($._work),
+      repeat($.credit),
+      repeat1($.part)
     ),
+
+    comment: $ => seq(
+      "#",
+      /.*/,
+      "\n"
+    ),
+
 
     // Твір
     _work: $ => seq(
-      $.name, //Однорядкова конструкція (у рядку може бути лише й тільки вона)
-      $.link //Однорядкова конструкція (у рядку може бути лише й тільки вона)
+      $.name,
+      $.link
     ),
-
-    // Діло робили
-    credits: $ => repeat1(
-      seq(
-        "#",
-        $.role,
-        ":",
-        $.persons
-      )
-    ),
-
-    // Структоризований переклад
-    _translate: $ => prec.left(seq(
-      prec(5, optional($.part)), //Однорядкова конструкція (у рядку може бути лише й тільки вона)
-      repeat1($.page) //Багаторядкова структура
-    )),
 
     name: $ => seq(
       "#",
@@ -52,6 +43,14 @@ module.exports = grammar({
       "\n"
     ),
 
+
+    // Діло робили
+    credit: $ => seq(
+      "#",
+      $.role,
+      ":",
+      $.persons
+    ),
 
     role: $ => choice(
       "Перекладав",
@@ -74,7 +73,13 @@ module.exports = grammar({
     person: $ => /[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\-\']+/,
 
 
-    part: $ => seq(
+    // Структоризований переклад
+    part: $ => prec.left(seq(
+      prec(5, optional($.part_number)),
+      repeat1($.page)
+    )),
+
+    part_number: $ => seq(
       "===",
       /\d+/,
       "===",
@@ -82,12 +87,13 @@ module.exports = grammar({
     ),
 
     page: $ => seq(
-      prec(4, $.page_number), //Однорядкова конструкція (у рядку може бути лише й тільки вона)
+      prec(4, $.page_number),
       repeat(
         choice(
-          prec(1, $.text), //Однорядкова конструкція (у рядку може бути лише й тільки вона)
-          prec(2, $.sound), //Однорядкова конструкція (у рядку може бути лише й тільки вона)
-          prec(3, $.separator) //Однорядкова конструкція (у рядку може бути лише й тільки вона)
+          prec(1, $.text),
+          prec(2, $.sound),
+          prec(3, $.separator),
+          prec(6, $.comment)
         )
       )
     ),
