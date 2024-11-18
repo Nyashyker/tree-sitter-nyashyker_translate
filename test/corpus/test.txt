@@ -17,21 +17,23 @@
 -----|||
 
 (source_file
-  (name
-  (link
-  (credits
-    (role
+  (name)
+  (link)
+  (credit
+    (role)
     (persons
       (person)
       (person)
     )
+  )
   (part
-  (page
-    (page_number (page_real_number) )
-    (text)
-    (separator)
-    (text)
-    (comment)
+    (page
+      (page_number (page_real_number) )
+      (text)
+      (separator)
+      (text)
+      (comment)
+    )
   )
 
 =====|||
