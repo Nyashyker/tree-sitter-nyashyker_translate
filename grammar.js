@@ -35,12 +35,12 @@ module.exports = grammar({
 
 
     // Діло робили
-    _credits: $ => seq(
+    _credits: $ => prec.left(seq(
       $.credit,
       optional($.comment)
-    ),
+    )),
 
-    credit: $ => seq("#",$.role,":",$.persons),
+    credit: $ => seq("#",$.role,":",$.persons,"\n"),
 
     role: $ => choice(
       "Перекладав",
@@ -52,22 +52,23 @@ module.exports = grammar({
 
     persons: $ => seq(
       $.person,
-      repeat(seq(",",$.person)),
-      "\n"
+      repeat(seq(",",$.person))
     ),
     person: $ => /[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\-\']+/,
 
 
     // Структоризований переклад
     part: $ => prec.left(seq(
-      optional($.part_number),
-      optional($.comment),
+      optional(seq(
+          $.part_number,
+          optional($.comment)
+      )),
       repeat1($.page)
     )),
 
     part_number: $ => /=== \d+ ===\n/,
 
-    page: $ => seq(
+    page: $ => prec.left(seq(
       $.page_number,
       repeat(
         choice(
@@ -77,7 +78,7 @@ module.exports = grammar({
           $.text
         )
       )
-    ),
+    )),
 
     page_number: $ => seq(
       /== \d+ ==/,
