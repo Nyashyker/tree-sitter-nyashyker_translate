@@ -20,7 +20,7 @@ module.exports = grammar({
       optional($.comment)
     ),
 
-    comment: $ => /=.*\n/,
+    comment: $ => /=[^\n=].*\n/,
 
 
     // Твір
@@ -58,13 +58,13 @@ module.exports = grammar({
 
 
     // Структоризований переклад
-    part: $ => prec.left(seq(
+    part: $ => seq(
       optional(seq(
           $.part_number,
           optional($.comment)
       )),
       repeat1($.page)
-    )),
+    ),
 
     part_number: $ => /=== \d+ ===\n/,
 
