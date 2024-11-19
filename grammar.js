@@ -19,7 +19,7 @@ module.exports = grammar({
       repeat1($.part),
     ),
 
-    comment: $ => /(=\n)|(=[^\n=].*\n)/,
+    comment: $ => /(\n=\n)|(\n=[^\n=].*\n)/,
 
 
     // Твір

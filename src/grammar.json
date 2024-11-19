@@ -35,7 +35,7 @@
     },
     "comment": {
       "type": "PATTERN",
-      "value": "(=\\n)|(=[^\\n=].*\\n)"
+      "value": "(\\n=\\n)|(\\n=[^\\n=].*\\n)"
     },
     "_work": {
       "type": "SEQ",
