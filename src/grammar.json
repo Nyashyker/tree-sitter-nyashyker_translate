@@ -81,7 +81,7 @@
     },
     "name": {
       "type": "PATTERN",
-      "value": "#.*\\n"
+      "value": "#([ -~]{1,6})|([^\\nh][^\\nt]{2}[^\\np][^\\n\\:][^\\n\\/]{2}[ -~]*)\\n"
     },
     "link": {
       "type": "PATTERN",
