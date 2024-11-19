@@ -10,14 +10,14 @@
 module.exports = grammar({
   name: "nyashyker_translate",
 
+  extras: $ => [ $.comment ],
+
   rules: {
     source_file: $ => seq(
       optional($._work),
       repeat($.credit),
       repeat1($.part),
     ),
-
-    extras: $ => [ $. comment ],
 
     comment: $ => /(=\n)|(=[^\n=].*\n)/,
 
@@ -76,7 +76,7 @@ module.exports = grammar({
     ),
     page_real_number: $ => /\(\d+\)/,
 
-    text: $ => /([^\n\=].?\n)|([^\n=-].*[^\n*][^\n\d]\n)/,
+    text: $ => /([^\n=].?\n)|([^\n=\-].*[^\n\*][^\n\d]+\n)/,
     sound: $ => /.*\*\d+\n/,
     separator: $ => /---\n/,
   }
