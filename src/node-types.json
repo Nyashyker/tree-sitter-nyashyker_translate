@@ -96,7 +96,7 @@
       "required": true,
       "types": [
         {
-          "type": "person",
+          "type": "nickname",
           "named": true
         }
       ]
@@ -197,15 +197,15 @@
     "named": true
   },
   {
+    "type": "nickname",
+    "named": true
+  },
+  {
     "type": "page_real_number",
     "named": true
   },
   {
     "type": "part_number",
-    "named": true
-  },
-  {
-    "type": "person",
     "named": true
   },
   {

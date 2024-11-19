@@ -36,7 +36,7 @@ enum ts_symbol_identifiers {
   anon_sym_u0422u0430u0439u043fu0438u0432 = 10,
   anon_sym_u041eu0431u043au043bu0430u0434u0438u043du043au0430 = 11,
   anon_sym_COMMA = 12,
-  sym_person = 13,
+  sym_nickname = 13,
   sym_part_number = 14,
   aux_sym_page_number_token1 = 15,
   sym_page_real_number = 16,
@@ -75,7 +75,7 @@ static const char * const ts_symbol_names[] = {
   [anon_sym_u0422u0430u0439u043fu0438u0432] = "\u0422\u0430\u0439\u043f\u0438\u0432",
   [anon_sym_u041eu0431u043au043bu0430u0434u0438u043du043au0430] = "\u041e\u0431\u043a\u043b\u0430\u0434\u0438\u043d\u043a\u0430",
   [anon_sym_COMMA] = ",",
-  [sym_person] = "person",
+  [sym_nickname] = "nickname",
   [sym_part_number] = "part_number",
   [aux_sym_page_number_token1] = "page_number_token1",
   [sym_page_real_number] = "page_real_number",
@@ -114,7 +114,7 @@ static const TSSymbol ts_symbol_map[] = {
   [anon_sym_u0422u0430u0439u043fu0438u0432] = anon_sym_u0422u0430u0439u043fu0438u0432,
   [anon_sym_u041eu0431u043au043bu0430u0434u0438u043du043au0430] = anon_sym_u041eu0431u043au043bu0430u0434u0438u043du043au0430,
   [anon_sym_COMMA] = anon_sym_COMMA,
-  [sym_person] = sym_person,
+  [sym_nickname] = sym_nickname,
   [sym_part_number] = sym_part_number,
   [aux_sym_page_number_token1] = aux_sym_page_number_token1,
   [sym_page_real_number] = sym_page_real_number,
@@ -192,7 +192,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = false,
   },
-  [sym_person] = {
+  [sym_nickname] = {
     .visible = true,
     .named = true,
   },
@@ -346,7 +346,7 @@ static const TSStateId ts_primary_state_ids[STATE_COUNT] = {
   [48] = 48,
 };
 
-static TSCharacterRange sym_person_character_set_1[] = {
+static TSCharacterRange sym_nickname_character_set_1[] = {
   {'\'', '\''}, {'-', '-'}, {'1', '9'}, {'A', 'Z'}, {'_', '_'}, {'a', 'z'}, {0x404, 0x404}, {0x406, 0x407},
   {0x410, 0x429}, {0x42c, 0x42c}, {0x42e, 0x449}, {0x44c, 0x44c}, {0x44e, 0x44f}, {0x454, 0x454}, {0x456, 0x457}, {0x490, 0x491},
 };
@@ -371,7 +371,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       );
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') SKIP(0);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 1:
       if (lookahead == '\n') ADVANCE(295);
@@ -2198,7 +2198,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
     case 279:
       if (('\t' <= lookahead && lookahead <= '\r') ||
           lookahead == ' ') SKIP(279);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 280:
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(173);
@@ -3190,222 +3190,222 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       END_STATE();
     case 416:
       ACCEPT_TOKEN(anon_sym_u041fu0435u0440u0435u043au043bu0430u0434u0430u0432);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 417:
       ACCEPT_TOKEN(anon_sym_u0420u0435u0434u0430u0433u0443u0432u0430u0432);
       END_STATE();
     case 418:
       ACCEPT_TOKEN(anon_sym_u0420u0435u0434u0430u0433u0443u0432u0430u0432);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 419:
       ACCEPT_TOKEN(anon_sym_u041au043bu0456u043du0438u0432);
       END_STATE();
     case 420:
       ACCEPT_TOKEN(anon_sym_u041au043bu0456u043du0438u0432);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 421:
       ACCEPT_TOKEN(anon_sym_u0422u0430u0439u043fu0438u0432);
       END_STATE();
     case 422:
       ACCEPT_TOKEN(anon_sym_u0422u0430u0439u043fu0438u0432);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 423:
       ACCEPT_TOKEN(anon_sym_u041eu0431u043au043bu0430u0434u0438u043du043au0430);
       END_STATE();
     case 424:
       ACCEPT_TOKEN(anon_sym_u041eu0431u043au043bu0430u0434u0438u043du043au0430);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 425:
       ACCEPT_TOKEN(anon_sym_COMMA);
       END_STATE();
     case 426:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x430) ADVANCE(449);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 427:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x430) ADVANCE(439);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 428:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x430) ADVANCE(424);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 429:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x430) ADVANCE(441);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 430:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x430) ADVANCE(436);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 431:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x430) ADVANCE(437);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 432:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x430) ADVANCE(442);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 433:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x431) ADVANCE(450);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 434:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x432) ADVANCE(420);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 435:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x432) ADVANCE(422);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 436:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x432) ADVANCE(418);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 437:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x432) ADVANCE(416);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 438:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x432) ADVANCE(430);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 439:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x433) ADVANCE(460);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 440:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x434) ADVANCE(427);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 441:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x434) ADVANCE(447);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 442:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x434) ADVANCE(431);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 443:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x435) ADVANCE(459);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 444:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x435) ADVANCE(440);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 445:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x435) ADVANCE(452);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 446:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x438) ADVANCE(434);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 447:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x438) ADVANCE(457);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 448:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x438) ADVANCE(435);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 449:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x439) ADVANCE(458);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 450:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x43a) ADVANCE(454);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 451:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x43a) ADVANCE(428);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 452:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x43a) ADVANCE(455);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 453:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x43b) ADVANCE(461);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 454:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x43b) ADVANCE(429);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 455:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x43b) ADVANCE(432);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 456:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x43d) ADVANCE(446);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 457:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x43d) ADVANCE(451);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 458:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x43f) ADVANCE(448);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 459:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x440) ADVANCE(445);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 460:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x443) ADVANCE(438);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 461:
-      ACCEPT_TOKEN(sym_person);
+      ACCEPT_TOKEN(sym_nickname);
       if (lookahead == 0x456) ADVANCE(456);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 462:
-      ACCEPT_TOKEN(sym_person);
-      if (set_contains(sym_person_character_set_1, 16, lookahead)) ADVANCE(462);
+      ACCEPT_TOKEN(sym_nickname);
+      if (set_contains(sym_nickname_character_set_1, 16, lookahead)) ADVANCE(462);
       END_STATE();
     case 463:
       ACCEPT_TOKEN(sym_part_number);
@@ -3519,7 +3519,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [anon_sym_u0422u0430u0439u043fu0438u0432] = ACTIONS(1),
     [anon_sym_u041eu0431u043au043bu0430u0434u0438u043du043au0430] = ACTIONS(1),
     [anon_sym_COMMA] = ACTIONS(1),
-    [sym_person] = ACTIONS(1),
+    [sym_nickname] = ACTIONS(1),
     [sym_part_number] = ACTIONS(1),
     [aux_sym_page_number_token1] = ACTIONS(1),
     [sym_page_real_number] = ACTIONS(1),
@@ -3953,7 +3953,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_part_number,
   [554] = 2,
     ACTIONS(138), 1,
-      sym_person,
+      sym_nickname,
     STATE(46), 1,
       sym_persons,
   [561] = 2,
@@ -3977,7 +3977,7 @@ static const uint16_t ts_small_parse_table[] = {
       anon_sym_LF,
   [587] = 1,
     ACTIONS(152), 1,
-      sym_person,
+      sym_nickname,
   [591] = 1,
     ACTIONS(154), 1,
       anon_sym_COLON,

@@ -158,7 +158,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "person"
+          "name": "nickname"
         },
         {
           "type": "REPEAT",
@@ -171,14 +171,14 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "person"
+                "name": "nickname"
               }
             ]
           }
         }
       ]
     },
-    "person": {
+    "nickname": {
       "type": "PATTERN",
       "value": "[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\\-\\']+"
     },

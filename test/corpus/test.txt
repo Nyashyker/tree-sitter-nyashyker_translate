@@ -23,8 +23,8 @@
   )
   (credits
     (role (persons
-        (person)
-        (person)
+        (nickname)
+        (nickname)
       )
     )
   )
@@ -40,7 +40,6 @@
 
 =====|||
 Коментарі всюди
-:skip
 =====|||
 
 = komentar 1
@@ -81,13 +80,13 @@
   )
   (credits
     (role (persons
-        (person)
-        (person)
+        (nickname)
+        (nickname)
       )
     )
     (comment)
     (role (persons
-        (person)
+        (nickname)
       )
     )
     (comment)
@@ -195,12 +194,12 @@
   )
   (credits
     (role (persons
-        (person)
-        (person)
+        (nickname)
+        (nickname)
       )
     )
     (role (persons
-        (person)
+        (nickname)
       )
     )
   )
