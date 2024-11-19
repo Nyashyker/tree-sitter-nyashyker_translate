@@ -12,13 +12,12 @@ module.exports = grammar({
 
   rules: {
     source_file: $ => seq(
-      optional($.comment),
       optional($._work),
-      optional($.comment),
-      repeat($._credits),
-      optional($.comment),
+      repeat($.credit),
       repeat1($.part),
     ),
+
+    extras: $ => [ $. comment ],
 
     comment: $ => /(=\n)|(=[^\n=].*\n)/,
 
@@ -26,7 +25,6 @@ module.exports = grammar({
     // Твір
     _work: $ => seq(
       $.name,
-      optional($.comment),
       $.link
     ),
 
@@ -35,11 +33,6 @@ module.exports = grammar({
 
 
     // Діло робили
-    _credits: $ => prec.left(seq(
-      $.credit,
-      optional($.comment)
-    )),
-
     credit: $ => seq("#",$.role,":",$.persons,"\n"),
 
     role: $ => choice(
@@ -60,23 +53,21 @@ module.exports = grammar({
     // Структоризований переклад
     part: $ => seq(
       $.part_number,
-      optional($.comment)
-      repeat1($.page)
+      repeat($.page)
     ),
 
     part_number: $ => /=== \d+ ===\n/,
 
-    page: $ => prec.left(seq(
+    page: $ => seq(
       $.page_number,
       repeat(
         choice(
-          $.comment,
-          $.sound,
           $.separator,
+          $.sound,
           $.text
         )
       )
-    )),
+    ),
 
     page_number: $ => seq(
       /== \d+ ==/,
