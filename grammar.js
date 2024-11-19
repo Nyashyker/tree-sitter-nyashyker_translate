@@ -60,7 +60,7 @@ module.exports = grammar({
     // Структоризований переклад
     part: $ => seq(
       $.part_number,
-      optional($.comment)
+      optional($.comment),
       repeat1($.page)
     ),
 
