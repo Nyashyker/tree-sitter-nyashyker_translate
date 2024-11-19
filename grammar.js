@@ -38,13 +38,13 @@ module.exports = grammar({
 
     // Діло робили
     credits: $ => seq(
-      $.credit,
+      $.role,
       repeat($.comment),
     ),
 
-    credit: $ => seq("#",$.role,":",$.persons,"\n"),
+    role: $ => seq("#",$._roles,":",$.persons,"\n"),
 
-    role: $ => choice(
+    _roles: $ => choice(
       "Перекладав",
       "Редагував",
       "Клінив",

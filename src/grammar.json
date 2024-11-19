@@ -92,7 +92,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "credit"
+          "name": "role"
         },
         {
           "type": "REPEAT",
@@ -103,7 +103,7 @@
         }
       ]
     },
-    "credit": {
+    "role": {
       "type": "SEQ",
       "members": [
         {
@@ -112,7 +112,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "role"
+          "name": "_roles"
         },
         {
           "type": "STRING",
@@ -128,7 +128,7 @@
         }
       ]
     },
-    "role": {
+    "_roles": {
       "type": "CHOICE",
       "members": [
         {

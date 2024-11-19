@@ -1,24 +1,5 @@
 [
   {
-    "type": "credit",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "persons",
-          "named": true
-        },
-        {
-          "type": "role",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "credits",
     "named": true,
     "fields": {},
@@ -31,7 +12,7 @@
           "named": true
         },
         {
-          "type": "credit",
+          "type": "role",
           "named": true
         }
       ]
@@ -124,7 +105,17 @@
   {
     "type": "role",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "persons",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "source_file",
