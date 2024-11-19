@@ -17,13 +17,15 @@
 -----|||
 
 (source_file
-  (name)
-  (link)
-  (credit
-    (role)
-    (persons
-      (person)
-      (person)
+  (works
+    (name)
+    (link)
+  )
+  (credits
+    (role (persons
+        (person)
+        (person)
+      )
     )
   )
   (part (part_number)
@@ -50,8 +52,8 @@
 #Перекладав: Хтось, Shos1
 = komentar 4
 #Редачив: Poh
-
 = komentar 5
+
 === 0 ===
 = komentar 6
 == 00 == (99)
@@ -71,27 +73,27 @@
 
 (source_file
   (comment)
-  (name)
-  (comment)
-  (link)
-  (comment)
-  (credit
-    (role)
-    (persons
-      (person)
-      (person)
-    )
+  (works
+    (name)
+    (comment)
+    (link)
+    (comment)
   )
-  (comment)
-  (credit
-    (role)
-    (persons
-      (person)
+  (credits
+    (role (persons
+        (person)
+        (person)
+      )
     )
+    (comment)
+    (role (persons
+        (person)
+      )
+    )
+    (comment)
   )
-  (comment)
   (part (part_number)
-  (comment)
+    (comment)
     (page (page_number (page_real_number) )
       (comment)
       (text)
@@ -181,23 +183,25 @@
 -----|||
 
 (source_file
-  (name)
-  (link)
-  (name)
-  (link)
-  (name)
-  (link)
-  (credit
-    (role)
-    (persons
-      (person)
-      (person)
-    )
+  (works
+    (name)
+    (link)
+
+    (name)
+    (link)
+
+    (name)
+    (link)
   )
-  (credit
-    (role)
-    (persons
-      (person)
+  (credits
+    (role (persons
+        (person)
+        (person)
+      )
+    )
+    (role (persons
+        (person)
+      )
     )
   )
   (part (part_number)
