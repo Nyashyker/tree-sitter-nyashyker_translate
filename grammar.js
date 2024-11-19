@@ -10,21 +10,23 @@
 module.exports = grammar({
   name: "nyashyker_translate",
 
-  extras: $ => [ $.comment ],
-
   rules: {
     source_file: $ => seq(
+      optional($.comment),
       optional($._work),
-      repeat($.credit),
+      optional($.comment),
+      repeat($._credits),
+      optional($.comment),
       repeat1($.part),
     ),
 
-    comment: $ => /(\n=\n)|(\n=[^\n=].*\n)/,
+    comment: $ => /(=\n)|(=[^\n=].*\n)/,
 
 
     // Твір
     _work: $ => seq(
       $.name,
+      optional($.comment),
       $.link
     ),
 
@@ -33,6 +35,11 @@ module.exports = grammar({
 
 
     // Діло робили
+    _credits: $ => prec.left(seq(
+      $.credit,
+      optional($.comment)
+    )),
+
     credit: $ => seq("#",$.role,":",$.persons,"\n"),
 
     role: $ => choice(
@@ -53,21 +60,23 @@ module.exports = grammar({
     // Структоризований переклад
     part: $ => seq(
       $.part_number,
-      repeat($.page)
+      optional($.comment)
+      repeat1($.page)
     ),
 
     part_number: $ => /=== \d+ ===\n/,
 
-    page: $ => seq(
+    page: $ => prec.left(seq(
       $.page_number,
       repeat(
         choice(
-          $.separator,
+          $.comment,
           $.sound,
+          $.separator,
           $.text
         )
       )
-    ),
+    )),
 
     page_number: $ => seq(
       /== \d+ ==/,
@@ -76,7 +85,7 @@ module.exports = grammar({
     ),
     page_real_number: $ => /\(\d+\)/,
 
-    text: $ => /([^\n=].?\n)|([^\n=\-].*[^\n\*][^\n\d]+\n)/,
+    text: $ => /([^\n\=].?\n)|([^\n=-].*[^\n*][^\n\d]\n)/,
     sound: $ => /.*\*\d+\n/,
     separator: $ => /---\n/,
   }
