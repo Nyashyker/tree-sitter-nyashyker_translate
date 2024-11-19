@@ -27,8 +27,7 @@
     )
   )
   (part (part_number)
-    (page
-      (page_number (page_real_number) )
+    (page (page_number (page_real_number) )
       (text)
       (separator)
       (sound)
@@ -39,6 +38,7 @@
 
 =====|||
 Коментарі всюди
+:skip
 =====|||
 
 = komentar 1
@@ -92,8 +92,7 @@
   (comment)
   (part (part_number)
   (comment)
-    (page
-      (page_number (page_real_number) )
+    (page (page_number (page_real_number) )
       (comment)
       (text)
       (comment)
@@ -107,26 +106,37 @@
 )
 
 =====|||
-необхідний мінімум
+Необхідний мінімум
 =====|||
 
+=== 0 ===
 == 0 ==
 Т
 
 -----|||
 
 (source_file
-  (part
-    (page
-      (page_number)
+  (part (part_number)
+    (page (page_number)
       (text)
     )
   )
 )
 
 =====|||
-Кілька сторінок і частин
+Допустимі повтори
 =====|||
+
+#Some Story Name - 1)
+#https://some-site.link/bla-bla1
+#Some Story Name - 2)
+#https://some-site.link/bla-bla2
+#Some Story Name - 3)
+#https://some-site.link/bla-bla3
+
+
+#Перекладав: Хтось, Shos1
+#Перекладав: Хтось
 
 === 0 ===
 == 00 == (99)
@@ -140,12 +150,20 @@
 ---
 Звуки *0
 = коментар до попереднього рядка
+Текст text
+---
+Звуки *9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+= коментар
 
-=== 1 ===
-== 00 == (999)
+=== 1234567890 ===
+== 1234567890 == (1234567890)
+Текст
 Текст
 ---
+---
 Звуки *0
+Звуки *0
+= коментар до попереднього рядка
 = коментар до попереднього рядка
 
 == 1 ==
@@ -163,16 +181,37 @@
 -----|||
 
 (source_file
+  (name)
+  (link)
+  (name)
+  (link)
+  (name)
+  (link)
+  (credit
+    (role)
+    (persons
+      (person)
+      (person)
+    )
+  )
+  (credit
+    (role)
+    (persons
+      (person)
+    )
+  )
   (part (part_number)
-    (page
-      (page_number (page_real_number) )
+    (page (page_number (page_real_number) )
       (text)
       (separator)
       (sound)
       (comment)
     )
-    (page
-      (page_number)
+    (page (page_number)
+      (text)
+      (separator)
+      (sound)
+      (comment)
       (text)
       (separator)
       (sound)
@@ -180,22 +219,23 @@
     )
   )
   (part (part_number)
-    (page
-      (page_number (page_real_number) )
+    (page (page_number (page_real_number) )
+      (text)
+      (text)
+      (separator)
+      (separator)
+      (sound)
+      (sound)
+      (comment)
+      (comment)
+    )
+    (page (page_number)
       (text)
       (separator)
       (sound)
       (comment)
     )
-    (page
-      (page_number)
-      (text)
-      (separator)
-      (sound)
-      (comment)
-    )
-    (page
-      (page_number)
+    (page (page_number)
       (text)
       (separator)
       (sound)
