@@ -219,25 +219,5 @@
   {
     "type": "text",
     "named": true
-  },
-  {
-    "type": "Клінив",
-    "named": false
-  },
-  {
-    "type": "Обкладинка",
-    "named": false
-  },
-  {
-    "type": "Перекладав",
-    "named": false
-  },
-  {
-    "type": "Редагував",
-    "named": false
-  },
-  {
-    "type": "Тайпив",
-    "named": false
   }
 ]

@@ -94,11 +94,11 @@
     },
     "name": {
       "type": "PATTERN",
-      "value": "#([ -~]{1,6})|([^\\nh][^\\nt]{2}[^\\np][^\\n\\:][^\\n\\/]{2}[ -~]*)\\n"
+      "value": "\\#([ -~]{1,6})|([^\\nh][^\\nt]{2}[^\\np][^\\n\\:][^\\n\\/]{2}[ -~]*)\\n"
     },
     "link": {
       "type": "PATTERN",
-      "value": "#https:\\/\\/[a-zA-Z0-9\\._\\-\\/]+\\n"
+      "value": "\\#https:\\/\\/[a-zA-Z0-9\\._\\-\\/]+\\n"
     },
     "credits": {
       "type": "REPEAT1",
@@ -128,7 +128,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_roles"
+          "name": "_role_name"
         },
         {
           "type": "STRING",
@@ -144,30 +144,9 @@
         }
       ]
     },
-    "_roles": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "Перекладав"
-        },
-        {
-          "type": "STRING",
-          "value": "Редагував"
-        },
-        {
-          "type": "STRING",
-          "value": "Клінив"
-        },
-        {
-          "type": "STRING",
-          "value": "Тайпив"
-        },
-        {
-          "type": "STRING",
-          "value": "Обкладинка"
-        }
-      ]
+    "_role_name": {
+      "type": "PATTERN",
+      "value": "[АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЮЯ][абвгґдеєжзиіїйклмнопрстуфхцчшщьюя_\\-\\']*"
     },
     "persons": {
       "type": "SEQ",
