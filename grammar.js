@@ -13,8 +13,8 @@ module.exports = grammar({
   rules: {
     source_file: $ => seq(
       repeat($.comment),
-      repeat($.works),
-      repeat($.credits),
+      optional($.works),
+      optional($.credits),
       repeat1($.part),
     ),
 
@@ -23,24 +23,24 @@ module.exports = grammar({
 
 
     // Твіри
-    works: $ => seq(
+    works: $ => repeat1(seq(
       $.name,
       repeat($.comment),
       optional(seq(
         $.link,
         repeat($.comment),
       )),
-    ),
+    )),
 
     name: $ => /#([ -~]{1,6})|([^\nh][^\nt]{2}[^\np][^\n\:][^\n\/]{2}[ -~]*)\n/,
     link: $ => /#https:\/\/[a-zA-Z0-9\._\-\/]+\n/,
 
 
     // Діло робили
-    credits: $ => seq(
+    credits: $ => repeat1(seq(
       $.role,
       repeat($.comment),
-    ),
+    )),
 
     role: $ => seq("#",$._roles,":",$.persons,"\n"),
 
