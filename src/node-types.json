@@ -19,6 +19,25 @@
     }
   },
   {
+    "type": "credits",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "credit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "page",
     "named": true,
     "fields": {},
@@ -121,7 +140,30 @@
           "named": true
         },
         {
-          "type": "credit",
+          "type": "credits",
+          "named": true
+        },
+        {
+          "type": "part",
+          "named": true
+        },
+        {
+          "type": "works",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "works",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "comment",
           "named": true
         },
         {
@@ -130,10 +172,6 @@
         },
         {
           "type": "name",
-          "named": true
-        },
-        {
-          "type": "part",
           "named": true
         }
       ]

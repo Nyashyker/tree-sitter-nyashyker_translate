@@ -12,22 +12,24 @@ module.exports = grammar({
 
   rules: {
     source_file: $ => seq(
-      optional($.comment),
-      optional($._work),
-      optional($.comment),
-      repeat($._credits),
-      optional($.comment),
+      repeat($.comment),
+      repeat($.works),
+      repeat($.credits),
       repeat1($.part),
     ),
 
+    // Коментарі
     comment: $ => /(=\n)|(=[^\n=].*\n)/,
 
 
-    // Твір
-    _work: $ => seq(
+    // Твіри
+    works: $ => seq(
       $.name,
-      optional($.comment),
-      $.link
+      repeat($.comment),
+      optional(seq(
+        $.link,
+        repeat($.comment),
+      )),
     ),
 
     name: $ => /#.*\n/,
@@ -35,10 +37,10 @@ module.exports = grammar({
 
 
     // Діло робили
-    _credits: $ => prec.left(seq(
+    credits: $ => seq(
       $.credit,
-      optional($.comment)
-    )),
+      repeat($.comment),
+    ),
 
     credit: $ => seq("#",$.role,":",$.persons,"\n"),
 
@@ -47,42 +49,33 @@ module.exports = grammar({
       "Редагував",
       "Клінив",
       "Тайпив",
-      "Обкладинка"
+      "Обкладинка",
     ),
 
-    persons: $ => seq(
-      $.person,
-      repeat(seq(",",$.person))
-    ),
+    persons: $ => seq($.person, repeat(seq(",",$.person))),
     person: $ => /[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\-\']+/,
 
 
     // Структоризований переклад
     part: $ => seq(
       $.part_number,
-      optional($.comment),
+      repeat($.comment),
       repeat1($.page)
     ),
 
     part_number: $ => /=== \d+ ===\n/,
 
-    page: $ => prec.left(seq(
+    page: $ => seq(
       $.page_number,
-      repeat(
-        choice(
+      repeat(choice(
           $.comment,
           $.sound,
           $.separator,
-          $.text
-        )
-      )
-    )),
-
-    page_number: $ => seq(
-      /== \d+ ==/,
-      optional($.page_real_number),
-      "\n"
+          $.text,
+      )),
     ),
+
+    page_number: $ => seq(/== \d+ ==/, optional($.page_real_number),"\n"),
     page_real_number: $ => /\(\d+\)/,
 
     text: $ => /([^\n\=].?\n)|([^\n=-].*[^\n*][^\n\d]\n)/,
