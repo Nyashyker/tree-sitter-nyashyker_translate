@@ -53,6 +53,8 @@
 #Редачив: Poh
 = komentar 5
 
+= сепар
+
 === 0 ===
 = komentar 6
 == 00 == (99)
@@ -89,6 +91,7 @@
         (nickname)
       )
     )
+    (comment)
     (comment)
   )
   (part (part_number)
