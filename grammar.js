@@ -12,15 +12,15 @@ module.exports = grammar({
 
   rules: {
     source_file: $ => seq(
+      optional($.comment),
       optional($._work),
       optional($.comment),
       repeat($._credits),
       optional($.comment),
       repeat1($.part),
-      optional($.comment)
     ),
 
-    comment: $ => /=[^\n=].*\n/,
+    comment: $ => /(=\n)|(=[^\n=].*\n)/,
 
 
     // Твір
@@ -59,10 +59,8 @@ module.exports = grammar({
 
     // Структоризований переклад
     part: $ => seq(
-      optional(seq(
-          $.part_number,
-          optional($.comment)
-      )),
+      $.part_number,
+      optional($.comment)
       repeat1($.page)
     ),
 
