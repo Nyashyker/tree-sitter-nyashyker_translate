@@ -4,7 +4,7 @@
       "name": "nyashyker_translate",
       "camelcase": "NyashykerTranslate",
       "scope": "source.nt",
-      "file-types": [".nt"],
+      "file-types": ["nt"],
       "highlights": "queries/highlights.scm"
     }
   ],
