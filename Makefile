@@ -3,8 +3,8 @@ $(error Windows is not supported)
 endif
 
 LANGUAGE_NAME := tree-sitter-nyashyker_translate
-HOMEPAGE_URL := https://github.com/nyashyker/nyashykertranslate.git
-VERSION := 3.0.1
+HOMEPAGE_URL := https://github.com/Nyashyker/tree-sitter-nyashyker_translate.git
+VERSION := 3.1.0
 
 # repository
 SRC_DIR := src

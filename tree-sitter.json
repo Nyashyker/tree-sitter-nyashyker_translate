@@ -19,7 +19,16 @@
       }
     ],
     "links": {
-      "repository": "https://github.com/Nyashyker/NyashykerTranslate.git"
+      "repository": "https://github.com/Nyashyker/tree-sitter-nyashyker_translate.git"
     }
+  },
+  "bindings": {
+    "c": false,
+    "go": false,
+    "node": false,
+    "python": false,
+    "rust": false,
+    "swift": false
   }
 }
+

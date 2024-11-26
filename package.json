@@ -1,6 +1,6 @@
 {
   "name": "tree-sitter-nyashyker-translate",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "The translation writing standart made by Nyashyker for Nyashyker in consultation with his translators.",
   "repository": "https://github.com/nyashyker/nyashykertranslate.git",
   "license": "MIT",

@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.13)
 
 project(tree-sitter-nyashyker_translate
-        VERSION "3.0.1"
+        VERSION "3.1.0"
         DESCRIPTION "The translation writing standart made by Nyashyker for Nyashyker in consultation with his translators."
-        HOMEPAGE_URL "https://github.com/nyashyker/nyashykertranslate.git"
+        HOMEPAGE_URL "https://github.com/Nyashyker/tree-sitter-nyashyker_translate.git"
         LANGUAGES C)
 
 option(BUILD_SHARED_LIBS "Build using shared libraries" ON)
