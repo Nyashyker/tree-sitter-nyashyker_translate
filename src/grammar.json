@@ -266,10 +266,6 @@
       "type": "PATTERN",
       "value": "\\(\\d+\\)"
     },
-    "text": {
-      "type": "PATTERN",
-      "value": "([^\\n\\=].?\\n)|([^\\n=-].*[^\\n*][^\\n\\d]\\n)"
-    },
     "sound": {
       "type": "PATTERN",
       "value": ".*\\*\\d+\\n"
@@ -277,6 +273,10 @@
     "separator": {
       "type": "PATTERN",
       "value": "---\\n"
+    },
+    "text": {
+      "type": "PATTERN",
+      "value": "[^\\n\\=].*\\n"
     }
   },
   "extras": [

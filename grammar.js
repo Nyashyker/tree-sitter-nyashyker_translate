@@ -53,7 +53,7 @@ module.exports = grammar({
     part: $ => seq(
       $.part_number,
       repeat($.comment),
-      repeat1($.page)
+      repeat1($.page),
     ),
 
     part_number: $ => /=== \d+ ===\n/,
@@ -71,9 +71,9 @@ module.exports = grammar({
     page_number: $ => seq(/== \d+ ==/, optional($.page_real_number),"\n"),
     page_real_number: $ => /\(\d+\)/,
 
-    text: $ => /([^\n\=].?\n)|([^\n=-].*[^\n*][^\n\d]\n)/,
     sound: $ => /.*\*\d+\n/,
     separator: $ => /---\n/,
+    text: $ => /[^\n\=].*\n/,
   }
 });
 
