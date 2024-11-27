@@ -19,6 +19,36 @@
     }
   },
   {
+    "type": "link",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "work_marker",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "work_marker",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "page",
     "named": true,
     "fields": {},
@@ -189,14 +219,6 @@
     "named": true
   },
   {
-    "type": "link",
-    "named": true
-  },
-  {
-    "type": "name",
-    "named": true
-  },
-  {
     "type": "nickname",
     "named": true
   },
@@ -218,6 +240,10 @@
   },
   {
     "type": "text",
+    "named": true
+  },
+  {
+    "type": "work_marker",
     "named": true
   }
 ]

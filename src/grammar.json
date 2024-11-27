@@ -92,13 +92,55 @@
         ]
       }
     },
-    "name": {
-      "type": "PATTERN",
-      "value": "(#[ -~]{1,6}\\n)|(#[^\\nh][^\\nt]{2}[^\\np][^\\n\\:][^\\n\\/]{2}[ -~]*\\n)"
-    },
     "link": {
-      "type": "PATTERN",
-      "value": "#https:\\/\\/[a-zA-Z0-9\\._\\-\\/]+\\n"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "work_marker"
+        },
+        {
+          "type": "PATTERN",
+          "value": "https:\\/\\/[ -~]+\\n"
+        }
+      ]
+    },
+    "name": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "work_marker"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[ -~]*\\n"
+        }
+      ]
+    },
+    "work_marker": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "\n"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          },
+          {
+            "type": "STRING",
+            "value": "#"
+          }
+        ]
+      }
     },
     "credits": {
       "type": "REPEAT1",
@@ -282,7 +324,7 @@
   "extras": [
     {
       "type": "PATTERN",
-      "value": "\\s"
+      "value": "[ \\t]"
     }
   ],
   "conflicts": [],

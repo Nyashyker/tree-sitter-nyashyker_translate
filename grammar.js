@@ -10,6 +10,8 @@
 module.exports = grammar({
   name: "nyashyker_translate",
 
+  extras: $ => [/[ \t]/],
+
   rules: {
     source_file: $ => seq(
       repeat($.comment),
@@ -32,8 +34,9 @@ module.exports = grammar({
       )),
     )),
 
-    name: $ => /(#[ -~]{1,6}\n)|(#[^\nh][^\nt]{2}[^\np][^\n\:][^\n\/]{2}[ -~]*\n)/,
-    link: $ => /#https:\/\/[a-zA-Z0-9\._\-\/]+\n/,
+    link: $ => seq($.work_marker, /https:\/\/[ -~]+\n/),
+    name: $ => seq($.work_marker, /[ -~]*\n/),
+    work_marker: $ => token(seq(optional("\n"),"#")),
 
 
     // Діло робили
