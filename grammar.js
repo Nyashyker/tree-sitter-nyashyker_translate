@@ -10,7 +10,7 @@
 module.exports = grammar({
   name: "nyashyker_translate",
 
-  extras: $ => [/[ \t]/],
+  extras: $ => [],
 
   rules: {
     source_file: $ => seq(
@@ -34,9 +34,9 @@ module.exports = grammar({
       )),
     )),
 
-    link: $ => seq($.work_marker, /https:\/\/[ -~]+\n/),
-    name: $ => seq($.work_marker, /[ -~]*\n/),
-    work_marker: $ => token(seq(optional("\n"),"#")),
+    link: $ => token(prec.right(seq($.work_marker, /https:\/\/[ -~]+\n/))),
+    name: $ => token(prec.right(seq($.work_marker, /[ -~]*\n/))),
+    work_marker: $ => "#",
 
 
     // Діло робили
@@ -45,7 +45,7 @@ module.exports = grammar({
       repeat($.comment),
     )),
 
-    role: $ => seq("#",$._role_name,":",$.persons,"\n"),
+    role: $ => seq("#",$._role_name,": ",$.persons,"\n"),
     _role_name: $ => /[АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЮЯ][абвгґдеєжзиіїйклмнопрстуфхцчшщьюя_\-\']*/,
 
     persons: $ => seq($.nickname, repeat(seq(",",$.nickname))),

@@ -93,54 +93,48 @@
       }
     },
     "link": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "work_marker"
-        },
-        {
-          "type": "PATTERN",
-          "value": "https:\\/\\/[ -~]+\\n"
-        }
-      ]
-    },
-    "name": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "work_marker"
-        },
-        {
-          "type": "PATTERN",
-          "value": "[ -~]*\\n"
-        }
-      ]
-    },
-    "work_marker": {
       "type": "TOKEN",
       "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "STRING",
-                "value": "\n"
-              },
-              {
-                "type": "BLANK"
-              }
-            ]
-          },
-          {
-            "type": "STRING",
-            "value": "#"
-          }
-        ]
+        "type": "PREC_RIGHT",
+        "value": 0,
+        "content": {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "work_marker"
+            },
+            {
+              "type": "PATTERN",
+              "value": "https:\\/\\/[ -~]+\\n"
+            }
+          ]
+        }
       }
+    },
+    "name": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC_RIGHT",
+        "value": 0,
+        "content": {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "work_marker"
+            },
+            {
+              "type": "PATTERN",
+              "value": "[ -~]*\\n"
+            }
+          ]
+        }
+      }
+    },
+    "work_marker": {
+      "type": "STRING",
+      "value": "#"
     },
     "credits": {
       "type": "REPEAT1",
@@ -174,7 +168,7 @@
         },
         {
           "type": "STRING",
-          "value": ":"
+          "value": ": "
         },
         {
           "type": "SYMBOL",
@@ -321,12 +315,7 @@
       "value": "[^\\n\\=].*\\n"
     }
   },
-  "extras": [
-    {
-      "type": "PATTERN",
-      "value": "[ \\t]"
-    }
-  ],
+  "extras": [],
   "conflicts": [],
   "precedences": [],
   "externals": [],
