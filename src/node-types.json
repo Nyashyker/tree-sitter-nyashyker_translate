@@ -176,6 +176,11 @@
     }
   },
   {
+    "type": "work_marker",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "works",
     "named": true,
     "fields": {},
@@ -207,11 +212,11 @@
     "named": false
   },
   {
-    "type": ",",
+    "type": ", ",
     "named": false
   },
   {
-    "type": ":",
+    "type": ": ",
     "named": false
   },
   {
@@ -240,10 +245,6 @@
   },
   {
     "type": "text",
-    "named": true
-  },
-  {
-    "type": "work_marker",
     "named": true
   }
 ]

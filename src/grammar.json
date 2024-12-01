@@ -50,87 +50,77 @@
       "value": "(=\\n)|(=[^\\n=].*\\n)"
     },
     "works": {
-      "type": "REPEAT1",
+      "type": "PREC_LEFT",
+      "value": 0,
       "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "name"
-          },
-          {
-            "type": "REPEAT",
-            "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "SEQ",
+          "members": [
+            {
               "type": "SYMBOL",
-              "name": "comment"
-            }
-          },
-          {
-            "type": "CHOICE",
-            "members": [
-              {
-                "type": "SEQ",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "link"
-                  },
-                  {
-                    "type": "REPEAT",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "comment"
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "BLANK"
+              "name": "name"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "comment"
               }
-            ]
-          }
-        ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "SYMBOL",
+                      "name": "link"
+                    },
+                    {
+                      "type": "REPEAT",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "comment"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            }
+          ]
+        }
       }
     },
     "link": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC_RIGHT",
-        "value": 0,
-        "content": {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "work_marker"
-            },
-            {
-              "type": "PATTERN",
-              "value": "https:\\/\\/[ -~]+\\n"
-            }
-          ]
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "work_marker"
+        },
+        {
+          "type": "PATTERN",
+          "value": "https:\\/\\/[ -~]+\\n"
         }
-      }
+      ]
     },
     "name": {
-      "type": "TOKEN",
-      "content": {
-        "type": "PREC_RIGHT",
-        "value": 0,
-        "content": {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "work_marker"
-            },
-            {
-              "type": "PATTERN",
-              "value": "[ -~]*\\n"
-            }
-          ]
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "work_marker"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[ -~]+\\n"
         }
-      }
+      ]
     },
     "work_marker": {
       "type": "STRING",
@@ -198,7 +188,7 @@
             "members": [
               {
                 "type": "STRING",
-                "value": ","
+                "value": ", "
               },
               {
                 "type": "SYMBOL",
@@ -300,7 +290,7 @@
     },
     "page_real_number": {
       "type": "PATTERN",
-      "value": "\\(\\d+\\)"
+      "value": " \\(\\d+\\)"
     },
     "sound": {
       "type": "PATTERN",
