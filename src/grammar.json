@@ -9,7 +9,21 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
+            "name": "_empty"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
             "name": "comment"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_empty"
           }
         },
         {
@@ -49,6 +63,10 @@
       "type": "PATTERN",
       "value": "(=\\n)|(=[^\\n=].*\\n)"
     },
+    "_empty": {
+      "type": "PATTERN",
+      "value": "\\n"
+    },
     "works": {
       "type": "PREC_LEFT",
       "value": 0,
@@ -82,6 +100,13 @@
                       "type": "REPEAT",
                       "content": {
                         "type": "SYMBOL",
+                        "name": "_empty"
+                      }
+                    },
+                    {
+                      "type": "REPEAT",
+                      "content": {
+                        "type": "SYMBOL",
                         "name": "comment"
                       }
                     }
@@ -91,6 +116,13 @@
                   "type": "BLANK"
                 }
               ]
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_empty"
+              }
             }
           ]
         }
@@ -139,7 +171,21 @@
             "type": "REPEAT",
             "content": {
               "type": "SYMBOL",
+              "name": "_empty"
+            }
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
               "name": "comment"
+            }
+          },
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_empty"
             }
           }
         ]
@@ -259,6 +305,13 @@
                 "name": "text"
               }
             ]
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_empty"
           }
         }
       ]

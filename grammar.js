@@ -14,7 +14,9 @@ module.exports = grammar({
 
   rules: {
     source_file: $ => seq(
+      repeat($._empty),
       repeat($.comment),
+      repeat($._empty),
       optional($.works),
       optional($.credits),
       repeat1($.part),
@@ -23,6 +25,9 @@ module.exports = grammar({
     // Коментарі
     comment: $ => /(=\n)|(=[^\n=].*\n)/,
 
+    // Пустий рядок
+    _empty: $ => /\n/,
+
 
     // Твіри
     works: $ => prec.left(repeat1(seq(
@@ -30,8 +35,10 @@ module.exports = grammar({
       repeat($.comment),
       optional(seq(
         $.link,
+        repeat($._empty),
         repeat($.comment),
       )),
+      repeat($._empty),
     ))),
 
     link: $ => seq($.work_marker, /https:\/\/[ -~]+\n/),
@@ -42,7 +49,9 @@ module.exports = grammar({
     // Діло робили
     credits: $ => repeat1(seq(
       $.role,
+      repeat($._empty),
       repeat($.comment),
+      repeat($._empty),
     )),
 
     role: $ => seq("#",$._role_name,": ",$.persons,"\n"),
@@ -69,6 +78,7 @@ module.exports = grammar({
           $.separator,
           $.text,
       )),
+      repeat($._empty),
     ),
 
     page_number: $ => seq(/== \d+ ==/, optional($.page_real_number),"\n"),
