@@ -9,7 +9,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_empty"
+            "name": "tempty"
           }
         },
         {
@@ -23,7 +23,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_empty"
+            "name": "tempty"
           }
         },
         {
@@ -63,7 +63,7 @@
       "type": "PATTERN",
       "value": "(=\\n)|(=[^\\n=].*\\n)"
     },
-    "_empty": {
+    "tempty": {
       "type": "PATTERN",
       "value": "\\n"
     },
@@ -100,7 +100,7 @@
                       "type": "REPEAT",
                       "content": {
                         "type": "SYMBOL",
-                        "name": "_empty"
+                        "name": "tempty"
                       }
                     },
                     {
@@ -121,7 +121,7 @@
               "type": "REPEAT",
               "content": {
                 "type": "SYMBOL",
-                "name": "_empty"
+                "name": "tempty"
               }
             }
           ]
@@ -171,7 +171,7 @@
             "type": "REPEAT",
             "content": {
               "type": "SYMBOL",
-              "name": "_empty"
+              "name": "tempty"
             }
           },
           {
@@ -185,7 +185,7 @@
             "type": "REPEAT",
             "content": {
               "type": "SYMBOL",
-              "name": "_empty"
+              "name": "tempty"
             }
           }
         ]
@@ -311,7 +311,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_empty"
+            "name": "tempty"
           }
         }
       ]
