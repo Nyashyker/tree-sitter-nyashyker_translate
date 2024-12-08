@@ -337,8 +337,12 @@
                 "name": "separator"
               },
               {
-                "type": "SYMBOL",
-                "name": "text"
+                "type": "PREC",
+                "value": -1,
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "text"
+                }
               }
             ]
           }
@@ -423,7 +427,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "sound_number"
+          "name": "sound_count"
         },
         {
           "type": "STRING",
@@ -435,7 +439,7 @@
       "type": "PATTERN",
       "value": "\\*"
     },
-    "sound_number": {
+    "sound_count": {
       "type": "PATTERN",
       "value": "\\d+"
     },
@@ -444,12 +448,8 @@
       "value": "---\n"
     },
     "text": {
-      "type": "PREC",
-      "value": -1,
-      "content": {
-        "type": "PATTERN",
-        "value": "[^\\n\\=].*\\n"
-      }
+      "type": "PATTERN",
+      "value": "[^\\n\\=].*\\n"
     }
   },
   "extras": [],

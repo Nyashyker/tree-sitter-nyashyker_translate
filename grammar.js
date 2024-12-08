@@ -84,7 +84,7 @@ module.exports = grammar({
           $.comment,
           $.sound,
           $.separator,
-          $.text,
+          prec(-1, $.text),
       )),
       repeat($._empty),
     ),
@@ -94,12 +94,12 @@ module.exports = grammar({
     page_real_marker: $ => seq(" (",$.page_real_number,")"),
     page_real_number: $ => /\d+/,
 
-    sound: $ => seq(/.*/,$.sound_marker,$.sound_number,"\n"),
+    sound: $ => seq(/.*/,$.sound_marker,$.sound_count,"\n"),
     sound_marker: $ => /\*/,
-    sound_number: $ => /\d+/,
+    sound_count: $ => /\d+/,
 
     separator: $ => "---\n",
-    text: $ => prec(-1, /[^\n\=].*\n/),
+    text: $ => /[^\n\=].*\n/,
   }
 });
 

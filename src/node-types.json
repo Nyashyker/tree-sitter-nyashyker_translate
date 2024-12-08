@@ -218,18 +218,18 @@
       "required": true,
       "types": [
         {
-          "type": "sound_marker",
+          "type": "sound_count",
           "named": true
         },
         {
-          "type": "sound_number",
+          "type": "sound_marker",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "sound_number",
+    "type": "sound_count",
     "named": true,
     "fields": {}
   },
@@ -260,11 +260,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "text",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "work_marker",
@@ -348,6 +343,10 @@
   },
   {
     "type": "sound_marker",
+    "named": true
+  },
+  {
+    "type": "text",
     "named": true
   }
 ]
