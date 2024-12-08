@@ -1,5 +1,10 @@
 [
   {
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "credits",
     "named": true,
     "fields": {},
@@ -324,10 +329,6 @@
   {
     "type": "=== ",
     "named": false
-  },
-  {
-    "type": "comment",
-    "named": true
   },
   {
     "type": "nickname",

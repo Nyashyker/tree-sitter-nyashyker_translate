@@ -112,8 +112,12 @@
       }
     },
     "comment": {
-      "type": "PATTERN",
-      "value": "(=\\n)|(=[^\\n=].*\\n)"
+      "type": "PREC",
+      "value": 64,
+      "content": {
+        "type": "PATTERN",
+        "value": "(=\\n)|(=[^\\n=].*\\n)"
+      }
     },
     "_empty": {
       "type": "STRING",
@@ -337,12 +341,8 @@
                 "name": "separator"
               },
               {
-                "type": "PREC",
-                "value": -1,
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "text"
-                }
+                "type": "SYMBOL",
+                "name": "text"
               }
             ]
           }
@@ -436,8 +436,8 @@
       ]
     },
     "sound_marker": {
-      "type": "PATTERN",
-      "value": "\\*"
+      "type": "STRING",
+      "value": "*"
     },
     "sound_count": {
       "type": "PATTERN",

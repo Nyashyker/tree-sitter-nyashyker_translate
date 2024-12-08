@@ -34,7 +34,7 @@ module.exports = grammar({
     )),
 
     // Коментарі
-    comment: $ => /(=\n)|(=[^\n=].*\n)/,
+    comment: $ => prec(64, /(=\n)|(=[^\n=].*\n)/),
 
     // Пустий рядок
     _empty: $ => "\n",
@@ -84,7 +84,7 @@ module.exports = grammar({
           $.comment,
           $.sound,
           $.separator,
-          prec(-1, $.text),
+          $.text,
       )),
       repeat($._empty),
     ),
@@ -95,7 +95,7 @@ module.exports = grammar({
     page_real_number: $ => /\d+/,
 
     sound: $ => seq(/.*/,$.sound_marker,$.sound_count,"\n"),
-    sound_marker: $ => /\*/,
+    sound_marker: $ => "*",
     sound_count: $ => /\d+/,
 
     separator: $ => "---\n",
