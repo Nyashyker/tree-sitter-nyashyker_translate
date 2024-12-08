@@ -1,6 +1,25 @@
 =====|||
+Звук не текст
+:fail-fast
+=====|||
+=== 0 ===
+== 0 ==
+Т *0
+
+-----|||
+
+(source_file
+  (part (part_marker (part_number) )
+    (page (page_marker (page_number) )
+      (sound (sound_marker) (sound_count) )
+    )
+  )
+)
+
+=====|||
 Загальний тест
 =====|||
+
 #Some Story Name - 1)
 #https://some-site.link/bla-bla
 
@@ -271,8 +290,9 @@
 )
 
 =====|||
-Текст може закінчуватися числом
+Майже звук = текст
 =====|||
+
 === 0 ===
 == 0 ==
 Т * normal 0
