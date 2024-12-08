@@ -166,8 +166,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "#"
+          "type": "SYMBOL",
+          "name": "role_marker"
         },
         {
           "type": "SYMBOL",
@@ -190,6 +190,10 @@
     "_role_name": {
       "type": "PATTERN",
       "value": "[АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЮЯ][абвгґдеєжзиіїйклмнопрстуфхцчшщьюя_\\-\\']*"
+    },
+    "role_marker": {
+      "type": "STRING",
+      "value": "#"
     },
     "persons": {
       "type": "SEQ",

@@ -41,8 +41,8 @@ module.exports = grammar({
       repeat($.comment),
     ))),
 
-    link: $ => seq($.work_marker, /https:\/\/[ -~]+\n/),
-    name: $ => seq($.work_marker, /[ -~]+\n/),
+    link: $ => seq($.work_marker,/https:\/\/[ -~]+\n/),
+    name: $ => seq($.work_marker,/[ -~]+\n/),
     work_marker: $ => "#",
 
 
@@ -52,8 +52,9 @@ module.exports = grammar({
       repeat($.comment),
     )),
 
-    role: $ => seq("#",$._role_name,": ",$.persons,"\n"),
+    role: $ => seq($.role_marker,$._role_name,": ",$.persons,"\n"),
     _role_name: $ => /[АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЮЯ][абвгґдеєжзиіїйклмнопрстуфхцчшщьюя_\-\']*/,
+    role_marker: $ => "#",
 
     persons: $ => seq($.nickname, repeat(seq(", ",$.nickname))),
     nickname: $ => /[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\-\']+/,
