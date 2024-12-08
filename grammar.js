@@ -37,7 +37,7 @@ module.exports = grammar({
     // Твіри
     works: $ => prec.right(repeat1(seq(
       $.name,
-      optional($.link),
+      $.link,
       repeat($.comment),
     ))),
 
