@@ -16,6 +16,10 @@ module.exports = grammar({
     source_file: $ => seq(
       repeat($.comment),
       optional($._header),
+      optional(seq(
+        repeat1($._empty),
+        repeat1($.comment),
+      )),
       repeat($._empty),
       repeat1($.part),
     ),
