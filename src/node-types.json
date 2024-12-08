@@ -1,10 +1,5 @@
 [
   {
-    "type": "comment",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "credits",
     "named": true,
     "fields": {},
@@ -75,10 +70,6 @@
         },
         {
           "type": "sound",
-          "named": true
-        },
-        {
-          "type": "text",
           "named": true
         }
       ]
@@ -331,6 +322,10 @@
     "named": false
   },
   {
+    "type": "comment",
+    "named": true
+  },
+  {
     "type": "nickname",
     "named": true
   },
@@ -344,10 +339,6 @@
   },
   {
     "type": "sound_marker",
-    "named": true
-  },
-  {
-    "type": "text",
     "named": true
   }
 ]

@@ -112,12 +112,8 @@
       }
     },
     "comment": {
-      "type": "PREC",
-      "value": 64,
-      "content": {
-        "type": "PATTERN",
-        "value": "(=\\n)|(=[^\\n=].*\\n)"
-      }
+      "type": "PATTERN",
+      "value": "(=\\n)|(=[^\\n=].*\\n)"
     },
     "_empty": {
       "type": "STRING",
@@ -339,20 +335,21 @@
               {
                 "type": "SYMBOL",
                 "name": "separator"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "text"
               }
             ]
           }
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_empty"
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_empty"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -419,7 +416,7 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": ".*"
+          "value": "([^\\n\\=\\-].?)|([^\\n\\=\\-].*[^\\n ][^\\n\\*])"
         },
         {
           "type": "SYMBOL",
@@ -430,14 +427,14 @@
           "name": "sound_count"
         },
         {
-          "type": "STRING",
-          "value": "\n"
+          "type": "PATTERN",
+          "value": "\\n"
         }
       ]
     },
     "sound_marker": {
       "type": "STRING",
-      "value": "*"
+      "value": " *"
     },
     "sound_count": {
       "type": "PATTERN",
@@ -449,7 +446,7 @@
     },
     "text": {
       "type": "PATTERN",
-      "value": "[^\\n\\=].*\\n"
+      "value": "[^\\n\\=\\-].*\\n"
     }
   },
   "extras": [],

@@ -34,7 +34,7 @@ module.exports = grammar({
     )),
 
     // Коментарі
-    comment: $ => prec(64, /(=\n)|(=[^\n=].*\n)/),
+    comment: $ => /(=\n)|(=[^\n=].*\n)/,
 
     // Пустий рядок
     _empty: $ => "\n",
@@ -84,9 +84,9 @@ module.exports = grammar({
           $.comment,
           $.sound,
           $.separator,
-          $.text,
+          //$.text,
       )),
-      repeat($._empty),
+      optional($._empty),
     ),
 
     page_marker: $ => seq("== ",$.page_number," ==", optional($.page_real_marker),"\n"),
@@ -94,12 +94,17 @@ module.exports = grammar({
     page_real_marker: $ => seq(" (",$.page_real_number,")"),
     page_real_number: $ => /\d+/,
 
-    sound: $ => seq(/.*/,$.sound_marker,$.sound_count,"\n"),
-    sound_marker: $ => "*",
+    sound: $ => seq(
+      /([^\n\=\-].?)|([^\n\=\-].*[^\n ][^\n\*])/,
+      $.sound_marker,$.sound_count,"\n"),
+    sound_marker: $ => " *",
     sound_count: $ => /\d+/,
 
     separator: $ => "---\n",
-    text: $ => /[^\n\=].*\n/,
+    text: $ => /[^\n\=\-].*\n/,
+    //text: $ => seq($._text2,"\n"),
+    //_text2: $ => seq($._text3,/.*/),
+    //_text3: $ => /[^\n\=\-]/,
   }
 });
 
