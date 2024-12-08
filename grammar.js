@@ -37,7 +37,7 @@ module.exports = grammar({
     comment: $ => /(=\n)|(=[^\n=].*\n)/,
 
     // Пустий рядок
-    _empty: $ => /\n/,
+    _empty: $ => "\n",
 
 
     // Твіри
@@ -63,21 +63,23 @@ module.exports = grammar({
     _role_name: $ => /[АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЮЯ][абвгґдеєжзиіїйклмнопрстуфхцчшщьюя_\-\']*/,
     role_marker: $ => "#",
 
-    persons: $ => seq($.nickname, repeat(seq(", ",$.nickname))),
+    persons: $ => seq($.nickname, repeat(seq($.persons_separator,$.nickname))),
     nickname: $ => /[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\-\']+/,
+    persons_separator: $ => ", ",
 
 
     // Структоризований переклад
     part: $ => seq(
-      $.part_number,
+      $.part_marker,
       repeat($.comment),
       repeat1($.page),
     ),
 
-    part_number: $ => /=== \d+ ===\n/,
+    part_marker: $ => seq("=== ",$.part_number," ===\n"),
+    part_number: $ => /\d+/,
 
     page: $ => seq(
-      $.page_number,
+      $.page_marker,
       repeat(choice(
           $.comment,
           $.sound,
@@ -87,12 +89,17 @@ module.exports = grammar({
       repeat($._empty),
     ),
 
-    page_number: $ => seq(/== \d+ ==/, optional($.page_real_number),"\n"),
-    page_real_number: $ => / \(\d+\)/,
+    page_marker: $ => seq("== ",$.page_number," ==", optional($.page_real_marker),"\n"),
+    page_number: $ => /\d+/,
+    page_real_marker: $ => seq(" (",$.page_real_number,")"),
+    page_real_number: $ => /\d+/,
 
-    sound: $ => /.*\*\d+\n/,
-    separator: $ => /---\n/,
-    text: $ => /[^\n\=].*\n/,
+    sound: $ => seq(/.*/,$.sound_marker,$.sound_number,"\n"),
+    sound_marker: $ => /\*/,
+    sound_number: $ => /\d+/,
+
+    separator: $ => "---\n",
+    text: $ => prec(-1, /[^\n\=].*\n/),
   }
 });
 

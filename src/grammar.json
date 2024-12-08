@@ -116,8 +116,8 @@
       "value": "(=\\n)|(=[^\\n=].*\\n)"
     },
     "_empty": {
-      "type": "PATTERN",
-      "value": "\\n"
+      "type": "STRING",
+      "value": "\n"
     },
     "works": {
       "type": "PREC_RIGHT",
@@ -248,8 +248,8 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "STRING",
-                "value": ", "
+                "type": "SYMBOL",
+                "name": "persons_separator"
               },
               {
                 "type": "SYMBOL",
@@ -264,12 +264,16 @@
       "type": "PATTERN",
       "value": "[a-zA-ZабвгґдеєжзиіїйклмнопрстуфхцчшщьюяАБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ1-9_\\-\\']+"
     },
+    "persons_separator": {
+      "type": "STRING",
+      "value": ", "
+    },
     "part": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "part_number"
+          "name": "part_marker"
         },
         {
           "type": "REPEAT",
@@ -287,16 +291,33 @@
         }
       ]
     },
+    "part_marker": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "=== "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "part_number"
+        },
+        {
+          "type": "STRING",
+          "value": " ===\n"
+        }
+      ]
+    },
     "part_number": {
       "type": "PATTERN",
-      "value": "=== \\d+ ===\\n"
+      "value": "\\d+"
     },
     "page": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "page_number"
+          "name": "page_marker"
         },
         {
           "type": "REPEAT",
@@ -331,19 +352,27 @@
         }
       ]
     },
-    "page_number": {
+    "page_marker": {
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "== \\d+ =="
+          "type": "STRING",
+          "value": "== "
+        },
+        {
+          "type": "SYMBOL",
+          "name": "page_number"
+        },
+        {
+          "type": "STRING",
+          "value": " =="
         },
         {
           "type": "CHOICE",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "page_real_number"
+              "name": "page_real_marker"
             },
             {
               "type": "BLANK"
@@ -356,21 +385,71 @@
         }
       ]
     },
+    "page_number": {
+      "type": "PATTERN",
+      "value": "\\d+"
+    },
+    "page_real_marker": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": " ("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "page_real_number"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
     "page_real_number": {
       "type": "PATTERN",
-      "value": " \\(\\d+\\)"
+      "value": "\\d+"
     },
     "sound": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": ".*"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sound_marker"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sound_number"
+        },
+        {
+          "type": "STRING",
+          "value": "\n"
+        }
+      ]
+    },
+    "sound_marker": {
       "type": "PATTERN",
-      "value": ".*\\*\\d+\\n"
+      "value": "\\*"
+    },
+    "sound_number": {
+      "type": "PATTERN",
+      "value": "\\d+"
     },
     "separator": {
-      "type": "PATTERN",
-      "value": "---\\n"
+      "type": "STRING",
+      "value": "---\n"
     },
     "text": {
-      "type": "PATTERN",
-      "value": "[^\\n\\=].*\\n"
+      "type": "PREC",
+      "value": -1,
+      "content": {
+        "type": "PATTERN",
+        "value": "[^\\n\\=].*\\n"
+      }
     }
   },
   "extras": [],
