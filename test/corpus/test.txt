@@ -39,7 +39,6 @@
 
 =====|||
 Коментарі всюди
-:skip
 =====|||
 = komentar 1
 #Some Story Name - 1)
@@ -74,19 +73,19 @@
 (source_file
   (comment)
   (works
-    (name)
+    (name (work_marker))
     (comment)
-    (link)
+    (link (work_marker))
     (comment)
   )
   (credits
-    (role (persons
+    (role (role_marker) (persons
         (nickname)
         (nickname)
       )
     )
     (comment)
-    (role (persons
+    (role (role_marker) (persons
         (nickname)
       )
     )
@@ -113,7 +112,6 @@
 
 =====|||
 Необхідний мінімум
-:skip
 =====|||
 === 0 ===
 == 0 ==
@@ -131,7 +129,6 @@
 
 =====|||
 Допустимі повтори
-:skip
 =====|||
 #Some Story Name - 1)
 #https://some-site.link/bla-bla1
@@ -188,22 +185,22 @@
 
 (source_file
   (works
-    (name)
-    (link)
+    (name (work_marker))
+    (link (work_marker))
 
-    (name)
-    (link)
+    (name (work_marker))
+    (link (work_marker))
 
-    (name)
-    (link)
+    (name (work_marker))
+    (link (work_marker))
   )
   (credits
-    (role (persons
+    (role (role_marker) (persons
         (nickname)
         (nickname)
       )
     )
-    (role (persons
+    (role (role_marker) (persons
         (nickname)
       )
     )
@@ -254,7 +251,6 @@
 
 =====|||
 Текст може закінчуватися числом
-:skip
 =====|||
 === 0 ===
 == 0 ==
