@@ -14,12 +14,14 @@ module.exports = grammar({
 
   rules: {
     source_file: $ => seq(
+      repeat($.comment),
       optional($._header),
       repeat($._empty),
       repeat1($.part),
     ),
 
     _header: $ => prec.right(seq(
+      repeat($._empty),
       $.works,
       optional(seq(
         repeat($._empty),
@@ -37,6 +39,7 @@ module.exports = grammar({
     // Твіри
     works: $ => prec.right(repeat1(seq(
       $.name,
+      repeat($.comment),
       $.link,
       repeat($.comment),
     ))),

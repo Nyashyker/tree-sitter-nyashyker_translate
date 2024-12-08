@@ -6,6 +6,13 @@
       "type": "SEQ",
       "members": [
         {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "comment"
+          }
+        },
+        {
           "type": "CHOICE",
           "members": [
             {
@@ -39,6 +46,13 @@
       "content": {
         "type": "SEQ",
         "members": [
+          {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_empty"
+            }
+          },
           {
             "type": "SYMBOL",
             "name": "works"
@@ -89,6 +103,13 @@
             {
               "type": "SYMBOL",
               "name": "name"
+            },
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "comment"
+              }
             },
             {
               "type": "SYMBOL",
