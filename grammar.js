@@ -14,31 +14,31 @@ module.exports = grammar({
 
   rules: {
     source_file: $ => seq(
-      repeat($.tempty),
-      repeat($.comment),
-      repeat($.tempty),
-      optional($.works),
-      optional($.credits),
+      optional($._header),
+      repeat($._empty),
       repeat1($.part),
     ),
+
+    _header: $ => prec.right(seq(
+      $.works,
+      optional(seq(
+        repeat($._empty),
+        $.credits,
+      )),
+    )),
 
     // Коментарі
     comment: $ => /(=\n)|(=[^\n=].*\n)/,
 
     // Пустий рядок
-    tempty: $ => /\n/,
+    _empty: $ => /\n/,
 
 
     // Твіри
-    works: $ => prec.left(repeat1(seq(
+    works: $ => prec.right(repeat1(seq(
       $.name,
+      optional($.link),
       repeat($.comment),
-      optional(seq(
-        $.link,
-        repeat($.tempty),
-        repeat($.comment),
-      )),
-      repeat($.tempty),
     ))),
 
     link: $ => seq($.work_marker, /https:\/\/[ -~]+\n/),
@@ -49,9 +49,7 @@ module.exports = grammar({
     // Діло робили
     credits: $ => repeat1(seq(
       $.role,
-      repeat($.tempty),
       repeat($.comment),
-      repeat($.tempty),
     )),
 
     role: $ => seq("#",$._role_name,": ",$.persons,"\n"),
@@ -78,7 +76,7 @@ module.exports = grammar({
           $.separator,
           $.text,
       )),
-      repeat($.tempty),
+      repeat($._empty),
     ),
 
     page_number: $ => seq(/== \d+ ==/, optional($.page_real_number),"\n"),

@@ -157,10 +157,6 @@
       "required": true,
       "types": [
         {
-          "type": "comment",
-          "named": true
-        },
-        {
           "type": "credits",
           "named": true
         },

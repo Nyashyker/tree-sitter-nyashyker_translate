@@ -6,32 +6,11 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "tempty"
-          }
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "comment"
-          }
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "tempty"
-          }
-        },
-        {
           "type": "CHOICE",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "works"
+              "name": "_header"
             },
             {
               "type": "BLANK"
@@ -39,16 +18,11 @@
           ]
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "credits"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_empty"
+          }
         },
         {
           "type": "REPEAT1",
@@ -59,16 +33,53 @@
         }
       ]
     },
+    "_header": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "works"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "REPEAT",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_empty"
+                    }
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "credits"
+                  }
+                ]
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
+        ]
+      }
+    },
     "comment": {
       "type": "PATTERN",
       "value": "(=\\n)|(=[^\\n=].*\\n)"
     },
-    "tempty": {
+    "_empty": {
       "type": "PATTERN",
       "value": "\\n"
     },
     "works": {
-      "type": "PREC_LEFT",
+      "type": "PREC_RIGHT",
       "value": 0,
       "content": {
         "type": "REPEAT1",
@@ -80,37 +91,11 @@
               "name": "name"
             },
             {
-              "type": "REPEAT",
-              "content": {
-                "type": "SYMBOL",
-                "name": "comment"
-              }
-            },
-            {
               "type": "CHOICE",
               "members": [
                 {
-                  "type": "SEQ",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "link"
-                    },
-                    {
-                      "type": "REPEAT",
-                      "content": {
-                        "type": "SYMBOL",
-                        "name": "tempty"
-                      }
-                    },
-                    {
-                      "type": "REPEAT",
-                      "content": {
-                        "type": "SYMBOL",
-                        "name": "comment"
-                      }
-                    }
-                  ]
+                  "type": "SYMBOL",
+                  "name": "link"
                 },
                 {
                   "type": "BLANK"
@@ -121,7 +106,7 @@
               "type": "REPEAT",
               "content": {
                 "type": "SYMBOL",
-                "name": "tempty"
+                "name": "comment"
               }
             }
           ]
@@ -171,21 +156,7 @@
             "type": "REPEAT",
             "content": {
               "type": "SYMBOL",
-              "name": "tempty"
-            }
-          },
-          {
-            "type": "REPEAT",
-            "content": {
-              "type": "SYMBOL",
               "name": "comment"
-            }
-          },
-          {
-            "type": "REPEAT",
-            "content": {
-              "type": "SYMBOL",
-              "name": "tempty"
             }
           }
         ]
@@ -311,7 +282,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "tempty"
+            "name": "_empty"
           }
         }
       ]
