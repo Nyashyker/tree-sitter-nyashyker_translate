@@ -1,7 +1,6 @@
 =====|||
 Загальний тест
 =====|||
-
 #Some Story Name - 1)
 #https://some-site.link/bla-bla
 
@@ -42,7 +41,6 @@
 Коментарі всюди
 :skip
 =====|||
-
 = komentar 1
 #Some Story Name - 1)
 = komentar 2
@@ -117,7 +115,6 @@
 Необхідний мінімум
 :skip
 =====|||
-
 === 0 ===
 == 0 ==
 Т
@@ -136,7 +133,6 @@
 Допустимі повтори
 :skip
 =====|||
-
 #Some Story Name - 1)
 #https://some-site.link/bla-bla1
 #Some Story Name - 2)
@@ -260,7 +256,6 @@
 Текст може закінчуватися числом
 :skip
 =====|||
-
 === 0 ===
 == 0 ==
 Т * normal 0
