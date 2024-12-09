@@ -84,7 +84,7 @@ module.exports = grammar({
           $.comment,
           $.sound,
           $.separator,
-          //$.text,
+          $.text,
       )),
       optional($._empty),
     ),

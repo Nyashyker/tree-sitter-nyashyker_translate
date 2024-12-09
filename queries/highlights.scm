@@ -7,13 +7,13 @@
 
 ; Твори
 (works
-  (name (works_marker) @label ) @string
-  (link (works_marker) @label ) @url
+  (name (work_marker) @label ) @string
+  (link (work_marker) @label ) @url
 )
 
 (name) @string
 (link) @url
-(works_marker) @label
+(work_marker) @label
 
 
 ; Ролі
