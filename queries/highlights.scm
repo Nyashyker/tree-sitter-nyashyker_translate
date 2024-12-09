@@ -7,40 +7,51 @@
 
 ; Твори
 (works
-  (name) @string
-  (link) @url
+  (name (works_marker) @label ) @string
+  (link (works_marker) @label ) @url
 )
 
 (name) @string
 (link) @url
+(works_marker) @label
 
 
 ; Ролі
 (credits
   (role (persons
       (nickname) @identifier
+      (persons_separator) @punctuation
     )
   ) @type
 )
 
 (role) @type
 (nickname) @identifier
+(persons_separator) @punctuation
 
 
 ; Структоризований переклад
-(part (part_number) @number
-  (page
-    (page_number (page_real_number) @number) @number
+(part (part_marker (part_number) @number ) @class
+  (page (page_marker (page_number) @number (page_real_marker (page_real_number) @number ) @comment ) @function
     (text) @text
-    (sound) @constant
+    (sound (sound_marker) @label (sound_count) @number ) @constant
     (separator) @punctuation.special
   )
 )
 
+(part) @class
+(part_marker) @class
 (part_number) @number
+(page_marker) @function
 (page_number) @number
+(page_real_marker) @comment
 (page_real_number) @number
 
 (text) @text
-(sound) @constant
 (separator) @punctuation.special
+
+(sound) @constant
+(sound) @constant
+(sound_marker) @label
+(sound_count) @number
+
