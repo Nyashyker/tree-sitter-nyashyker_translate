@@ -415,8 +415,29 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "PATTERN",
-          "value": "([^\\n\\=\\-].?)|([^\\n\\=\\-].*[^\\n ][^\\n\\*])"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": "[^\\n\\=\\-\\* ]"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "[^\\n\\=\\- ][^\\n\\* ]"
+                },
+                {
+                  "type": "PATTERN",
+                  "value": "[^\\n\\=\\-].*[^\\n ][^\\n\\* ]"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -425,10 +446,6 @@
         {
           "type": "SYMBOL",
           "name": "sound_count"
-        },
-        {
-          "type": "PATTERN",
-          "value": "\\n"
         }
       ]
     },

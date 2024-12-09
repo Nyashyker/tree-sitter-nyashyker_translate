@@ -95,8 +95,13 @@ module.exports = grammar({
     page_real_number: $ => /\d+/,
 
     sound: $ => seq(
-      /([^\n\=\-].?)|([^\n\=\-].*[^\n ][^\n\*])/,
-      $.sound_marker,$.sound_count,"\n"),
+      optional(choice(
+        /[^\n\=\-\* ]/,
+        /[^\n\=\- ][^\n\* ]/,
+        /[^\n\=\-].*[^\n ][^\n\* ]/,
+      )),
+      $.sound_marker,$.sound_count),
+      //,/\n/),
     sound_marker: $ => " *",
     sound_count: $ => /\d+/,
 
