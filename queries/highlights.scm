@@ -1,57 +1,56 @@
 ; Підсвічування для кореневого вузла
-(source_file) @none
+(source_file) @nt
 
 ; Підсвічування для коментарів
-(comment) @comment
+(comment) @nt.comment
 
 
 ; Твори
 (works
-  (name (work_marker) @label ) @string
-  (link (work_marker) @label ) @url
-)
+  (name (work_marker) @nt.label.works.name ) @nt.works.name
+  (link (work_marker) @nt.label.works.url ) @nt.works.url
+) @nt.works
 
-(name) @string
-(link) @url
-(work_marker) @label
+(name) @nt.works.name
+(link) @nt.works.url
+(work_marker) @nt.label.works
 
 
 ; Ролі
 (credits
   (role (persons
-      (nickname) @identifier
-      (persons_separator) @punctuation
+      (nickname) @nt.credits.name
+      (persons_separator) @nt.credits.punctuation.comma
     )
-  ) @type
-)
+  ) @nt.credits.role
+) @nt.credits
 
-(role) @type
-(nickname) @identifier
-(persons_separator) @punctuation
+(role) @nt.credits.role
+(nickname) @nt.credits.name
+(persons_separator) @nt.credits.punctuation.comma
 
 
 ; Структоризований переклад
-(part (part_marker (part_number) @number ) @class
-  (page (page_marker (page_number) @number (page_real_marker (page_real_number) @number ) @comment ) @function
-    (text) @text
-    (sound (sound_marker) @label (sound_count) @number ) @constant
-    (separator) @punctuation.special
-  )
-)
+(part (part_marker (part_number) @nt.number.part ) @nt.label.part
+  (page (page_marker (page_number) @nt.number.page (page_real_marker (page_real_number) @nt.number.page.real ) @nt.label.page.real ) @nt.label.page
+    (text) @nt.text
+    (separator) @nt.sparator
+    (sound (sound_marker) @nt.label.sound (sound_count) @nt.number.sound ) @nt.sound
+  ) @nt.page
+) @nt.part
 
-(part) @class
-(part_marker) @class
-(part_number) @number
-(page_marker) @function
-(page_number) @number
-(page_real_marker) @comment
-(page_real_number) @number
+(part) @nt.part
+(part_marker) @nt.label.part
+(part_number) @nt.number.part
+(page_marker) @nt.label.page
+(page_number) @nt.number.page
+(page_real_marker) @nt.label.page.real
+(page_real_number) @nt.number.page.real
 
-(text) @text
-(separator) @punctuation.special
+(text) @nt.text
+(separator) @nt.separator
 
-(sound) @constant
-(sound) @constant
-(sound_marker) @label
-(sound_count) @number
+(sound) @nt.sound
+(sound_marker) @nt.label.sound
+(sound_count) @nt.number.sound
 
