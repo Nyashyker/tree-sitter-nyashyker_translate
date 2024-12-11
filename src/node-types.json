@@ -71,10 +71,6 @@
         {
           "type": "sound",
           "named": true
-        },
-        {
-          "type": "text",
-          "named": true
         }
       ]
     }
@@ -343,10 +339,6 @@
   },
   {
     "type": "sound_marker",
-    "named": true
-  },
-  {
-    "type": "text",
     "named": true
   }
 ]

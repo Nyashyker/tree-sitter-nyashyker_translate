@@ -335,10 +335,6 @@
               {
                 "type": "SYMBOL",
                 "name": "separator"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "text"
               }
             ]
           }
@@ -450,6 +446,10 @@
         {
           "type": "SYMBOL",
           "name": "sound_count"
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\n"
         }
       ]
     },
